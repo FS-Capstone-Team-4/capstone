@@ -1,8 +1,8 @@
 //IMPORT MODELS HERE
-const db = require('./database');
+const conn = require('./conn');
 
 const syncAndSeed = async () => {
-  await db.sync({ force: true });
+  await conn.sync({ force: true });
 
   //USE MODELS TO SEED DATABASE IN HERE!!!
 };
