@@ -18,6 +18,9 @@ const CongressMember = conn.define('congressmember', {
             isIn: [['democrat', 'republican', 'other']],
         }
     },
+    state: {
+        type: STRING,
+    },
     position: {
         type: STRING,
         allowNull: false
