@@ -13,6 +13,8 @@ const LandingPage = () => {
     dispatch(loadMembers())
   }, [])
 
+  console.log("state" , state)
+
 
   return (
     <div>
