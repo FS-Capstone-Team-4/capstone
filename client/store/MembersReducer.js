@@ -1,4 +1,6 @@
 import axios from "axios";
+// import fs from 'node:fs/promises'
+// import CongressMember from "../../server/db/models/CongressMember";
 
 //token
 
@@ -40,22 +42,9 @@ function MembersReducer(state = initialState, action) {
 export const loadMembers = () => {
   return async (dispatch) => {
     try {
-      console.log("loading members");
-      const senateUrl =
-        "https://api.propublica.org/congress/v1/116/senate/members.json";
-      const houseUrl =
-        "https://api.propublica.org/congress/v1/116/house/members.json";
-
-      const senateData = await axios.get(senateUrl, config);
-      const houseData = await axios.get(houseUrl, config);
-
-
-      const realDataSenate = senateData.data.results[0].members;
-      const realDataHouse = houseData.data.results[0].members;
-
-      const finalData = realDataSenate.concat(realDataHouse)
-
-      dispatch(_loadMembers(finalData));
+      // let finalData = await CongressMember.findAll();
+      // console.log("finalData", finalData)
+      // dispatch(_loadMembers(finalData));
     } catch (e) {
       console.log(e);
     }

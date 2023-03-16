@@ -1,4 +1,3 @@
-const { STRING } = require('sequelize');
 const conn = require('../conn');
 const { STRING, UUID, UUIDV4 } = conn.Sequelize;
 
