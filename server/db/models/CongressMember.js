@@ -1,11 +1,17 @@
+const { Sequelize } = require('sequelize');
 const conn = require('../conn');
 const { STRING, DATEONLY, UUID, UUIDV4 } = conn.Sequelize;
 
 const CongressMember = conn.define('congressmember', {
     id: {
-        type: UUID,
         primaryKey: true,
-        defaultValue: UUIDV4
+        defaultValue: UUIDV4,
+        type: UUID,
+        allowNull:false
+    },
+    CongressId: {
+        type: STRING,
+        allowNull:false
     },
     name: {
         type: STRING,
@@ -14,19 +20,16 @@ const CongressMember = conn.define('congressmember', {
     party: {
         type: STRING,
         allowNull: false,
-        validate: {
-            isIn: [['democrat', 'republican', 'other']],
-        }
     },
     state: {
         type: STRING,
     },
     position: {
         type: STRING,
-        allowNull: false
     },
-    electedOn: {
-        type: DATEONLY
+    congress: {
+        type: STRING,
+        allowNull: false
     }
 });
 

@@ -1,4 +1,4 @@
-const conn = require('./models/conn');
+// const conn = require('./models/conn');
 const Bill = require('./models/Bill');
 const BillCategorization = require('./models/BillCategorization');
 const BillSponsorship = require('./models/BillSponsorship');
@@ -26,3 +26,9 @@ CommitteeAssignment.belongsTo(Committee);
 Committee.hasMany(CommitteeAssignment);
 BillCategorization.belongsTo(Category);
 Category.hasMany(BillCategorization);
+
+module.exports = {
+    models: {
+        CongressMember
+    }
+}

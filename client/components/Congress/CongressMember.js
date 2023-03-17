@@ -3,15 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 
-const CongressMember = () => {
+const CongressMember = (member) => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { congressMember } = useSelector(state => state.congressMember);
 
     return (
-        congressMember &&
         <div>
-            <h2>{congressMember.name} ({congressMember.party}) - {congressMember.state}</h2>
+            <p>{member.name} ({member.party}) - {member.state}</p>
+            <button type="button" class="collapsible">Open Collapsible</button>
+            <div class="content">
+                <p>Lorem ipsum...</p>
+            </div>
         </div>
     )
 }
