@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Map from './Map';
 import Navbar from './Navbar';
 
@@ -7,6 +8,7 @@ const LandingPage = () => {
     <div>
       <h1>Landing Page</h1>
       <Navbar />
+
       <div>
         Map Area
         <Map />
