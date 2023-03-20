@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, useMap, Popup, Marker } from 'react-leaflet';
 import L from 'leaflet';
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
 import RecenterMap from './RecenterMap';
 
@@ -27,6 +29,14 @@ const Map = () => {
 
   return (
     <div>
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+    >
+            <p> Please select a location </p>
+            </Typography>
       <MapContainer
         id='map'
         center={[39.5, -98.35]}
@@ -50,6 +60,7 @@ const Map = () => {
           </>
         )}
       </MapContainer>
+      </Container>
     </div>
   );
 };
