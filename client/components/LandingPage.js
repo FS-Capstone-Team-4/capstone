@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { loadMembers } from '../store/MembersReducer';
 import { useState } from 'react';
 import axios from 'axios';
+import Dashboard from './Dashboard';
 
 const LandingPage = ({congressMembers}) => {
   console.log("congressmembers", congressMembers)
@@ -18,19 +19,20 @@ const LandingPage = ({congressMembers}) => {
   // }, [])
 
   // console.log("state" , state)
-  
-  
 
-  return (
-    <div>
-      <h1>Landing Page</h1>
-      <Navbar />
+   {/* <Navbar />
       <div>
         Map Area
         <Map />
       </div>
       <button onClick = {()=> console.log(congressMembers)}> Congress </button>
-    </div>
+    </div> */}
+  
+  
+
+  return (
+      <Dashboard />
+     
   );
 };
 
