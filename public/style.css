@@ -3,3 +3,8 @@
     width: auto;
     outline: none;
   }
+
+Link {
+  color: black;
+  size:100px
+}

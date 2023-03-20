@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LandingPage from "./LandingPage";
+import { Router, Route } from "react-router-dom";
 
 const App = () => {
   const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";
@@ -15,7 +16,10 @@ const App = () => {
 
   useEffect(() => {
     const fetchBills = async (query) => {
-      const response = await axios.get(`https://api.propublica.org/congress/v1/bills/search.json?query=${query}`, config);
+      const response = await axios.get(
+        `https://api.propublica.org/congress/v1/bills/search.json?query=${query}`,
+        config
+      );
       setBills(response.data.results[0].bills);
     };
     fetchBills("health care");
@@ -32,42 +36,49 @@ const App = () => {
     fetchCongressMembers();
   }, []);
 
-// bills by member
+  // bills by member
   const [billsByMember, setBillsByMember] = useState([]);
 
   useEffect(() => {
     const fetchBillsByMember = async (memberId) => {
-      const response = await axios.get(`https://api.propublica.org/congress/v1/members/${memberId}/bills/introduced.json`, config);
+      const response = await axios.get(
+        `https://api.propublica.org/congress/v1/members/${memberId}/bills/introduced.json`,
+        config
+      );
       setBillsByMember(response.data.results[0].bills);
     };
     fetchBillsByMember("L000287");
   }, []);
 
-//select specific member (includes committees)
-const [singleMember, setSingleMember] = useState([]);
+  //select specific member (includes committees)
+  const [singleMember, setSingleMember] = useState([]);
 
-useEffect(() => {
-  const fetchSingleMember = async (memberId) => {
-    const response = await axios.get(`https://api.propublica.org/congress/v1/members/${memberId}.json`, config);
-    setSingleMember(response.data.results[0]);
-  };
-  fetchSingleMember("L000287");
-}, []);
+  useEffect(() => {
+    const fetchSingleMember = async (memberId) => {
+      const response = await axios.get(
+        `https://api.propublica.org/congress/v1/members/${memberId}.json`,
+        config
+      );
+      setSingleMember(response.data.results[0]);
+    };
+    fetchSingleMember("L000287");
+  }, []);
 
+  //select a bill's roll call vote (necessary for getting vote ration)
+  const [rollCall, setRollCall] = useState([]);
 
-//select a bill's roll call vote (necessary for getting vote ration)
-const [rollCall, setRollCall] = useState([]);
+  useEffect(() => {
+    const fetchRollCall = async (chamber, RollCallNumber) => {
+      const response = await axios.get(
+        `https://api.propublica.org/congress/v1/115/${chamber}/sessions/1/votes/${RollCallNumber}.json`,
+        config
+      );
+      setRollCall(response.data.results.votes.vote);
+    };
+    fetchRollCall("senate", "17");
+  }, []);
 
-useEffect(() => {
-  const fetchRollCall = async (chamber, RollCallNumber) => {
-    const response = await axios.get(`https://api.propublica.org/congress/v1/115/${chamber}/sessions/1/votes/${RollCallNumber}.json`, config);
-    setRollCall(response.data.results.votes.vote);
-  };
-  fetchRollCall("senate", "17");
-}, []);
-
-console.log("Roll call", rollCall)
-
+  console.log("Roll call", rollCall);
 
   return (
     <div>
