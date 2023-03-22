@@ -1,15 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SingleCongress from "./CongressMember";
 
 const CongressList = () => {
-    const { congressMembers } = useSelector(state => state.congressMembers);
-    const dispatch = useDispatch();
+    // const { congressMembers } = useSelector(state => state.congressMembers);
+    // const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     dispatch(fetchCongressMembers());
+    // },[])
+    const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";
+  const config = {
+    headers: {
+      "X-API-Key": token,
+    },
+  };
+
+    const [congressMembers, setCongressMembers] = useState([]);
 
     useEffect(() => {
-        dispatch(fetchCongressMembers());
-    },[])
+        const fetchCongressMembers = async () => {
+        const response = await axios.get("/api/congressmembers");
+        setCongressMembers(response.data);
+        };
+        fetchCongressMembers();
+    }, []);
 
     return (
         <div>

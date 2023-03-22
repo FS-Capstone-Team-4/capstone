@@ -15,6 +15,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Map from "./Map";
 import { MainListItems } from "./ListItems";
+import { Routes, Route } from "react-router-dom";
+import CongressList from "./Congress/CongressList";
+import BillGeneral from "./Bills/BillGeneral";
 
 //https://mui.com/material-ui/getting-started/templates/dashboard/
 
@@ -149,16 +152,11 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-    >
-            <h1> Please select a location </h1>
-            </Typography>
-            <Map />
-          </Container>
+            <Routes>
+              <Route path="/" element={< Map />} />
+              <Route path="/representatives" element={<CongressList />} />
+              <Route path="/bills" element={<BillGeneral />} />
+            </Routes>
         </Box>
       </Box>
     </ThemeProvider>

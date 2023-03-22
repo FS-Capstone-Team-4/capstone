@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LandingPage from "./LandingPage";
+import { Routes, Route } from "react-router-dom";
+import CongressList from "./Congress/CongressList";
 import Dashboard from "./Dashboard";
 
 const App = () => {
@@ -25,7 +27,7 @@ const App = () => {
     fetchBills("health care");
   }, []);
 
-  //congress members general
+  // congress members general
   const [congressMembers, setCongressMembers] = useState([]);
 
   useEffect(() => {
@@ -79,7 +81,9 @@ const App = () => {
   }, []);
 
   return (
-    <Dashboard />
+    <div>
+      <Dashboard />
+    </div>
   );
 };
 
