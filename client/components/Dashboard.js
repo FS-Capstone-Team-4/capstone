@@ -17,6 +17,7 @@ import Map from "./Map";
 import { MainListItems } from "./ListItems";
 import { Routes, Route } from "react-router-dom";
 import CongressList from "./Congress/CongressList";
+import BillGeneral from "./Bills/BillGeneral";
 
 //https://mui.com/material-ui/getting-started/templates/dashboard/
 
@@ -136,7 +137,6 @@ function DashboardContent() {
           <List component="nav">
             <MainListItems />
             <Divider sx={{ my: 1 }} />
-            {/* {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -155,6 +155,7 @@ function DashboardContent() {
             <Routes>
               <Route path="/" element={< Map />} />
               <Route path="/representatives" element={<CongressList />} />
+              <Route path="/bills" element={<BillGeneral />} />
             </Routes>
         </Box>
       </Box>

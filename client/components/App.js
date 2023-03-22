@@ -66,7 +66,7 @@ const App = () => {
     fetchSingleMember("L000287");
   }, []);
 
-  //select a bill's roll call vote (necessary for getting vote ration)
+  //select a bill's roll call vote (necessary for getting vote ratio)
   const [rollCall, setRollCall] = useState([]);
 
   useEffect(() => {
@@ -79,8 +79,6 @@ const App = () => {
     };
     fetchRollCall("senate", "17");
   }, []);
-
-  console.log("Roll call", rollCall);
 
   return (
     <div>

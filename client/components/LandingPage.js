@@ -11,23 +11,6 @@ import Dashboard from './Dashboard';
 
 const LandingPage = ({congressMembers}) => {
   console.log("congressmembers", congressMembers)
-
-
-  // const state = useSelector(state => state);
-  // const dispatch = useDispatch()
-  // useEffect(()=> {
-  //   dispatch(loadMembers())
-  // }, [])
-
-  // console.log("state" , state)
-
-   {/* <Navbar />
-      <div>
-        Map Area
-        <Map />
-      </div>
-      <button onClick = {()=> console.log(congressMembers)}> Congress </button>
-    </div> */}
   
   
 
