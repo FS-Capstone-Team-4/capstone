@@ -18,6 +18,7 @@ import { MainListItems } from "./ListItems";
 import { Routes, Route } from "react-router-dom";
 import CongressList from "./Congress/CongressList";
 import CongressPage from "./Congress/CongressPage";
+import BillGeneral from "./Bills/BillGeneral";
 
 //https://mui.com/material-ui/getting-started/templates/dashboard/
 
@@ -137,7 +138,6 @@ function DashboardContent() {
           <List component="nav">
             <MainListItems />
             <Divider sx={{ my: 1 }} />
-            {/* {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -157,6 +157,7 @@ function DashboardContent() {
               <Route path="/" element={< Map />} />
               <Route path="/congressmembers" element={<CongressList />} />
               <Route path="/congressmembers/:CongressId" element={<CongressPage />} />
+              <Route path="/bills" element={<BillGeneral />} />
             </Routes>
         </Box>
       </Box>
