@@ -29,12 +29,12 @@ export const MainListItems = () => {
       <ListItemText primary="Bills" />
     </ListItemButton>
     </Link>
-    <Link to = '/representatives'>
+    <Link to = '/congressmembers'>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Representatives" />
+      <ListItemText primary="Members of Congress" />
     </ListItemButton>
     </Link>
     </div>
