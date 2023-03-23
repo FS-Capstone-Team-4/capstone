@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import SearchDisplay from "./SearchDisplay";
+import { Link } from "react-router-dom";
 
 const BillSearch = () => {
   const [value, setValue] = useState(""); // Here we'll store the value of the search bar's text input
@@ -36,9 +37,7 @@ const BillSearch = () => {
     setBills(response.data.results[0].bills);
   };
 
-  // const fetchBillsThunk = () => {
-  //     return fetchBills(value)
-  // }
+  const [showMore, setShowMore] = useState(Array(bills.length).fill(false));
 
   return (
     <div>
@@ -51,7 +50,24 @@ const BillSearch = () => {
         />
         <button> Search </button>
       </form>
-      <SearchDisplay bills = {bills}></SearchDisplay>
+      {bills.map((bill, index) => (
+        <div key={index}>
+        {bill.short_title}
+        <button onClick={() => {
+          const newShowMore = [...showMore];
+          newShowMore[index] = !showMore[index];
+          setShowMore(newShowMore);
+        }}>
+          {showMore[index] ? 'Show less' : 'Show more'}
+        </button>
+        {showMore[index] ? (
+          <ul>
+            <li>Introduced on {bill.introduced_date}</li>
+            <li>For more information click <Link to={`/bills/${bill.bill_id}`}>here</Link></li>
+          </ul>
+        ) : ''}
+        </div>
+      ))}
     </div>
   );
 };
