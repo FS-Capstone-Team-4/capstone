@@ -9,15 +9,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import Dashboard from './Dashboard';
 
-const LandingPage = ({congressMembers}) => {
-  console.log("congressmembers", congressMembers)
-  
-  
-
-  return (
-      <Dashboard />
-     
-  );
+const LandingPage = ({ congressMembers }) => {
+  return <Dashboard />;
 };
 
 export default LandingPage;
