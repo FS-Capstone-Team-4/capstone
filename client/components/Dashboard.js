@@ -28,8 +28,7 @@ function Copyright(props) {
       variant="body2"
       color="text.secondary"
       align="center"
-    >
-    </Typography>
+    ></Typography>
   );
 }
 
@@ -92,6 +91,7 @@ function DashboardContent() {
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
+          
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
@@ -149,14 +149,20 @@ function DashboardContent() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             height: "100vh",
+            pl: "-100px",
+            pr: "150px",
             overflow: "auto",
           }}
         >
           <Toolbar />
+       
             <Routes>
-              <Route path="/" element={< Map />} />
+              <Route path="/" element={<Map />} />
               <Route path="/congressmembers" element={<CongressList />} />
-              <Route path="/congressmembers/:CongressId" element={<CongressPage />} />
+              <Route
+                path="/congressmembers/:CongressId"
+                element={<CongressPage />}
+              />
               <Route path="/bills" element={<BillGeneral />} />
             </Routes>
         </Box>
