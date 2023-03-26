@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-
+import { formatDate, convertTerritory } from "../Functions";
 
 const CongressPage = () => {
     const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";
@@ -42,16 +42,18 @@ const CongressPage = () => {
       fetchBillsByMember(CongressId);
     }, []);
 
-    //dates from API are in MM-DD-YYYY format so we want to change to Month DD, YYYY format
-    const formatDate = (dateStr) => {
-        const dateObj = new Date(dateStr);
-        const formattedDate = dateObj.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-        })
-        return formattedDate;
-    }
+    const [votesByMember, setVotesByMember] = useState([]);
+
+    useEffect(() => {
+      const fetchVotesByMember = async (memberId) => {
+        const response = await axios.get(
+          `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`,
+          config
+        );
+        setVotesByMember(response.data.results[0].votes);
+      };
+      fetchVotesByMember(CongressId);
+    }, []);
 
     //getting first start date from object
     const firstStartDate = (member) => {
@@ -79,7 +81,7 @@ const CongressPage = () => {
             {singleMember.current_party === 'D' ? ' Democrat' : ' Republican'}</h2>
             <p>Role: {setCurrentRole(singleMember).title}</p>
             <p>In office since: {firstStartDate(singleMember)}</p>
-            <p>From: {currentRole.state}</p>
+            <p>From: {convertTerritory(currentRole.state)}</p>
             <h4>Stats for the {currentRole.congress}th Congress:</h4>
             <h4>Voting Stats:</h4>
             <p>Total Votes: {currentRole.total_votes}</p>
@@ -90,14 +92,27 @@ const CongressPage = () => {
             <h4>Bill Sponsorship:</h4>
             <p>They've sponsored {currentRole.bills_sponsored} bills</p>
             <p>and cosponsored {currentRole.bills_cosponsored} bills</p>
-            <p>
+            <ul>
                 {billsByMember.map((bill, index) => (
                     <li key={index}>
-                        {bill.short_title}
+                        {bill.short_title}- <Link to={`/bills/${bill.bill_id}`}>more info</Link>
                     </li>
                 ))}
-            </p>
-            <pre>bills: {JSON.stringify(billsByMember, null, 2)}</pre>
+            </ul>
+            <ul>
+                <h4>These are their most recent votes:</h4>
+                {votesByMember.map((vote, index) => (
+                    <li key={index}>
+                        {vote.bill.title}
+                        <ul>
+                            <li>{vote.result} on {formatDate(vote.date)}</li>
+                            <li>This person voted "{vote.position}"</li>
+                            <li>For more information, click <Link to={`/bills/${vote.bill.bill_id}`}>here</Link></li>
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+            {/* <pre>bills: {JSON.stringify(billsByMember, null, 2)}</pre> */}
             {/* <pre>member: {JSON.stringify(singleMember, null, 2)}</pre> */}
         </div>
     )
