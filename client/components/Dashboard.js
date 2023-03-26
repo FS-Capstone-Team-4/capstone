@@ -29,8 +29,7 @@ function Copyright(props) {
       variant="body2"
       color="text.secondary"
       align="center"
-    >
-    </Typography>
+    ></Typography>
   );
 }
 
@@ -83,16 +82,17 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    // <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
+          
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
@@ -150,20 +150,26 @@ function DashboardContent() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             height: "100vh",
+            pl: "-100px",
+            pr: "150px",
             overflow: "auto",
           }}
         >
           <Toolbar />
+       
             <Routes>
-              <Route path="/" element={< Map />} />
+              <Route path="/" element={<Map />} />
               <Route path="/congressmembers" element={<CongressList />} />
-              <Route path="/congressmembers/:CongressId" element={<CongressPage />} />
+              <Route
+                path="/congressmembers/:CongressId"
+                element={<CongressPage />}
+              />
               <Route path="/bills" element={<BillGeneral />} />
               <Route path="/bills/:bills_id" element={<BillPage />} />
             </Routes>
         </Box>
       </Box>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 

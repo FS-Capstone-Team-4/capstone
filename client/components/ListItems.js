@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import PeopleIcon from '@mui/icons-material/People';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import MapIcon from '@mui/icons-material/Map';
-import { Link } from 'react-router-dom';
+import { Link } from '@mui/material';
 
 
 // have to fix link on this page
@@ -13,7 +13,7 @@ export const MainListItems = () => {
 
     return (
         <div>
-    <Link to ='/' color="inherit">
+    <Link href ='#' color="inherit" underline = "none">
     <ListItemButton>
       <ListItemIcon>
         <MapIcon />
@@ -21,7 +21,7 @@ export const MainListItems = () => {
       <ListItemText primary="Map" />
     </ListItemButton>
     </Link>
-    <Link to = '/bills'>
+    <Link href = '#/bills' color="inherit" underline = "none">
     <ListItemButton>
       <ListItemIcon>
       <HistoryEduIcon />
@@ -29,7 +29,7 @@ export const MainListItems = () => {
       <ListItemText primary="Bills" />
     </ListItemButton>
     </Link>
-    <Link to = '/congressmembers'>
+    <Link href = '#/congressmembers' color="inherit" underline = "none">
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />

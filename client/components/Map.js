@@ -24,7 +24,7 @@ const Map = () => {
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
+        navigator.geolocation.getCurrentPosition((position) => {
           setUserLatitude(position.coords.latitude);
           setUserLongitude(position.coords.longitude);
         });
@@ -78,6 +78,7 @@ const Map = () => {
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
           />
           {userLatitude && userLongitude && (
             <>
