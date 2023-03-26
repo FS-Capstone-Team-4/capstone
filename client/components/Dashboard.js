@@ -82,13 +82,13 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    // <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -169,7 +169,7 @@ function DashboardContent() {
             </Routes>
         </Box>
       </Box>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 

@@ -2,16 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import CongressCard from "./CongressCard";
 import { Grid } from "@mui/material";
+import CardGrid from "./CongressCard2";
 
 const CongressList = () => {
-  // const { congressMembers } = useSelector(state => state.congressMembers);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //     dispatch(fetchCongressMembers());
-  // },[])
   const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";
   const config = {
     headers: {
@@ -32,6 +26,7 @@ const CongressList = () => {
       setCongressMembers(response.data);
     };
     fetchCongressMembers();
+    // setSortedMembers(congressMembers)
   }, []);
 
   const filteredMembers = sortedMembers.filter((member) => {
@@ -159,12 +154,8 @@ const CongressList = () => {
           <option value="state">State</option>
         </select>
       </div>
-
-      <Grid container spacing={3}>
-        {filteredMembers.map((congressMember, index) => (
-          <CongressCard key = {congressMember.CongressId} member={congressMember} />
-        ))}
-      </Grid>
+        
+            <CardGrid data={filteredMembers} />
     </div>
   );
 };
