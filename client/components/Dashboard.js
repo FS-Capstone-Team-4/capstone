@@ -19,6 +19,7 @@ import { Routes, Route } from "react-router-dom";
 import CongressList from "./Congress/CongressList";
 import CongressPage from "./Congress/CongressPage";
 import BillGeneral from "./Bills/BillGeneral";
+import BillPage from "./Bills/BillPage";
 
 //https://mui.com/material-ui/getting-started/templates/dashboard/
 
@@ -158,6 +159,7 @@ function DashboardContent() {
               <Route path="/congressmembers" element={<CongressList />} />
               <Route path="/congressmembers/:CongressId" element={<CongressPage />} />
               <Route path="/bills" element={<BillGeneral />} />
+              <Route path="/bills/:bills_id" element={<BillPage />} />
             </Routes>
         </Box>
       </Box>

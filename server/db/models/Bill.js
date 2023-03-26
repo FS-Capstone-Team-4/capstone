@@ -1,5 +1,5 @@
 const conn = require('../conn');
-const { STRING, DATEONLY, UUID, UUIDV4 } = conn.Sequelize;
+const { STRING, BOOLEAN, UUID, UUIDV4, TEXT } = conn.Sequelize;
 
 const Bill = conn.define('bill', {
     id: {
@@ -7,21 +7,38 @@ const Bill = conn.define('bill', {
         primaryKey: true,
         defaultValue: UUIDV4
     },
-    name: {
-        type: STRING,
-        allowNull: false,
-    },
-    passedOn: {
-        type: DATEONLY
-    },
-    billSummary: {
+    bill_id: {
         type: STRING,
     },
-    yayMeans: {
+    short_title: {
+        type: STRING
+    },
+    title: {
+        type: TEXT,
+    },
+    sponsor_id: {
         type: STRING,
     },
-    nayMeans: {
+    introduced_date: {
         type: STRING,
+    },
+    active: {
+        type: BOOLEAN,
+    },
+    enacted: {
+        type: STRING,
+    },
+    vetoed: {
+        type: STRING,
+    },
+    last_vote: {
+        type: STRING
+    },
+    latest_major_action: {
+        type: STRING
+    },
+    latest_major_action_date: {
+        type: STRING
     },
 });
 
