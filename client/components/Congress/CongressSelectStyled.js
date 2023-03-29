@@ -171,6 +171,20 @@ const FourSelectOptions = () => {
     }
   };
 
+  const sortByName = () => {
+    setSortMethod("name");
+    setSortedMembers(
+        [...congressMembers].sort((a, b) => a.name.localeCompare(b.name))
+      );
+  };
+
+  const sortByState = () => {
+    setSortMethod("state");
+    setSortedMembers(
+        [...congressMembers].sort((a, b) => a.state.localeCompare(b.state))
+      );
+  };
+
   console.log("congress members", congressMembers)
   console.log("sorted members", sortedMembers)
   console.log("filtered members", filteredMembers)
@@ -272,6 +286,8 @@ useEffect(() => {
           value={sortBy}
           onChange={handleChange}
         >
+          {/* <button onClick={sortByName}>Show alphabetically by name</button>
+          <button onClick={sortByState}>Show alphabetically by state/territory</button> */}
           {SortByOptions.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
