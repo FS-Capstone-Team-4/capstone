@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
+import SenatorList from './SenatorListforMap';
 
 import RecenterMap from './RecenterMap';
 import RepCard from './RepCard';
@@ -65,7 +66,7 @@ const Map = () => {
     <div>
       <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
         <Typography variant='body2' color='text.secondary' align='center'>
-          <p> Please select a location </p>
+          <h1> Please select a location </h1>
         </Typography>
         <MapContainer
           id='map'
@@ -96,6 +97,8 @@ const Map = () => {
       <PercentageBar />
 
       <h2>These are your State's Representatives</h2>
+
+      
       {congressMembers &&
         USState &&
         congressMembers
@@ -105,11 +108,8 @@ const Map = () => {
             );
           })
           .map((member, idx) => {
-            return <RepCard key={idx} member={member} />;
+            return <SenatorList key = {idx} rep = {member} />
           })}
-      <hr />
-      <hr />
-      <hr />
 
       <h2>These are your Senators</h2>
       {congressMembers &&
@@ -121,7 +121,7 @@ const Map = () => {
             );
           })
           .map((member, idx) => {
-            return <SenatorCard key={idx} member={member} />;
+            return <SenatorList key={idx} rep={member} />;
           })}
     </div>
   );
