@@ -151,7 +151,6 @@ function DashboardContent() {
             flexGrow: 1,
             height: "100vh",
             pl: "-100px",
-            pr: "150px",
             overflow: "auto",
           }}
         >

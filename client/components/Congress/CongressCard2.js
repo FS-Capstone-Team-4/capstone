@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing(2),
+    paddingLeft: '200px',
   },
   card: {
     maxWidth: 345,
