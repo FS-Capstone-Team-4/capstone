@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import BillVotes from "./BillVotes";
 import { formatDate } from "../Functions";
+import BillCard from "./BillPageStyled";
 
 
 const BillPage = () => {
@@ -37,24 +38,11 @@ const BillPage = () => {
     }, []);
     console.log(bill, "single bill");
 
-    const latestVote = () => {
-        if (bill.votes && bill.votes.length > 0) {
-            vote = bill.votes[0];
-        }
-        return vote;
-    }
+
 
     return (
         <div>
-            <h2>Bill Details</h2>
-            <p>Title: {bill.short_title}</p>
-            <p>Introduced on: {formatDate(bill.introduced_date)}</p>
-            <p>Sponsor: <Link to={`/congressmembers/${bill.sponsor_id}`}>{bill.sponsor}</Link> ({bill.sponsor_party})</p>
-            <p>What's the latest?</p>
-            <p>On {formatDate(bill.latest_major_action_date)}, the below happened:<br />{bill.latest_major_action}</p>
-            <div>
-                {latestVote() ?  <BillVotes bill={bill}/>: ''}
-            </div>
+            <BillCard bill = {bill}/>
         </div>
     )
 }
