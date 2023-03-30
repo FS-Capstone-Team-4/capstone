@@ -2,19 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RepCard = props => {
+  function extractIdFromUrl(url) {
+    const parts = url.split('/');
+    return parts.pop().split('.')[0];
+  }
+
   return (
     <div>
-      <Link to={`/congressmembers/${props.member.CongressId}`}>
+      <Link to={`/congressmembers/${extractIdFromUrl(props.member.photoUrl)}`}>
         <div>Name: {props.member.name}</div>
       </Link>
       <div>
         Party:
-        {props.member.party === 'R'
-          ? 'Republican'
-          : props.member.party === 'D'
-          ? 'Democrat'
-          : 'Independent'}
+        {props.member.party}
       </div>
+      <img src={props.member.photoUrl} />
       <hr />
     </div>
   );
