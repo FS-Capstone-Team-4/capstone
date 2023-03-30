@@ -29,8 +29,10 @@ const Map = () => {
           setUserLatitude(position.coords.latitude);
           setUserLongitude(position.coords.longitude);
         });
-      }
-    };
+      // setUserLatitude(41.9725636);
+      // setUserLongitude(-87.6912325);
+      }}
+    
 
     const fetchCongressMembers = async () => {
       const response = await axios.get('/api/congressmembers'); //THIS USES OLD API
@@ -78,7 +80,7 @@ const Map = () => {
     <div>
       <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
         <Typography variant='body2' color='text.secondary' align='center'>
-          <h1> Please select a location </h1>
+          <h1> Welcome to Polifacts! </h1>
         </Typography>
         <MapContainer
           id='map'
@@ -106,12 +108,10 @@ const Map = () => {
         representatives.map((member, idx) => {
           return <RepCard key={idx} member={member} />;
         })}
-      <hr />
-      <hr />
-      <h2>These are your Senators</h2>
+      <h2>These are your Senators:</h2>
       {senators &&
         senators.map((member, idx) => {
-          return <SenatorCard key={idx} member={member} />;
+          return <RepCard key={idx} member={member} />;
         })}
     </div>
   );

@@ -18,13 +18,13 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '100%', // 16:9
   },
 }));
 
 const CardGrid = ({ data }) => {
   const classes = useStyles();
-  console.log('data', data[0]);
+
 
   return (
     <div>
