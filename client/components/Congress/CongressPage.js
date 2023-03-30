@@ -75,7 +75,7 @@ const CongressPage = () => {
             return 0;
         }
     }
-
+    console.log(votesByMember, "votes by member");
     return (
         <div>
             <CongressMemberPage rep = {singleMember} bills = {billsByMember} votes = {votesByMember} role = {setCurrentRole(singleMember)}/>
