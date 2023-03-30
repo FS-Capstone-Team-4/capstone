@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import CardGrid from './CongressCard2';
 import { Paper } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,9 +18,22 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
       },
     },
+    buttons: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
     paper: {
       padding: theme.spacing(2),
       marginBottom: theme.spacing(2),
+    },
+    paper2: {
+      minHeight:"600px",
+      minWidth:"100%",
+
     },
     formControl: {
       margin: theme.spacing(1),
@@ -172,14 +186,14 @@ const FourSelectOptions = () => {
   };
 
   const sortByName = () => {
-    setSortMethod("name");
+    setSortBy("name");
     setSortedMembers(
         [...congressMembers].sort((a, b) => a.name.localeCompare(b.name))
       );
   };
 
   const sortByState = () => {
-    setSortMethod("state");
+    setSortBy("state");
     setSortedMembers(
         [...congressMembers].sort((a, b) => a.state.localeCompare(b.state))
       );
@@ -276,27 +290,12 @@ useEffect(() => {
           ))}
         </Select>
       </FormControl>
-
-      <FormControl className={classes.formControl}>
-        <InputLabel id="option3-select-label">Sort By</InputLabel>
-        <Select
-          labelId="option3-select-label"
-          id="option3-select"
-          name="sortBy"
-          value={sortBy}
-          onChange={handleChange}
-        >
-          {/* <button onClick={sortByName}>Show alphabetically by name</button>
-          <button onClick={sortByState}>Show alphabetically by state/territory</button> */}
-          {SortByOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <div className={classes.buttons}>
+      <Button variant="contained" color="primary" onClick={sortByName}>Show by name</Button>
+      <Button variant="contained" color="secondary" onClick={sortByState}>Show by state/territory</Button>
+      </div>
       </Paper>
-      <Paper >
+      <Paper className={classes.paper2}>
       <CardGrid data={filteredMembers} />
       </Paper>
 
