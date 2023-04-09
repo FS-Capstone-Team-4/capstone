@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -49,7 +47,7 @@ const RepCard = props => {
                 <Button
                   variant='contained'
                   color='primary'
-                  href={`/congressmembers/${extractIdFromUrl(props.member.photoUrl)}`}
+                  href={`#/congressmembers/${extractIdFromUrl(props.member.photoUrl)}`}
                 >
                   Visit Page
                 </Button>
@@ -57,20 +55,6 @@ const RepCard = props => {
             </Card>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <Link to={`/congressmembers/${extractIdFromUrl(props.member.photoUrl)}`}>
-  //       <div>Name: {props.member.name}</div>
-  //     </Link>
-  //     <div>
-  //       Party:
-  //       {props.member.party}
-  //     </div>
-  //     <img src={props.member.photoUrl} />
-  //     <hr />
-  //   </div>
-  // );
 };
 
 export default RepCard;
