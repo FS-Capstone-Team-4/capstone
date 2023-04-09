@@ -102,17 +102,20 @@ const Map = () => {
       </Container>
 
       <h2>Your Congressional District's Representative is:</h2>
-      {representatives &&
+      {representatives?representatives &&
         representatives.map((member, idx) => {
           return <RepCard key={idx} member={member} />;
-        })}
+        }):
+        null}
       <hr />
       <hr />
       <h2>These are your Senators</h2>
-      {senators &&
+      {senators?
+      senators &&
         senators.map((member, idx) => {
           return <SenatorCard key={idx} member={member} />;
-        })}
+        }):
+        "null"}
     </div>
   );
 };

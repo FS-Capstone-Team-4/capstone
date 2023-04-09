@@ -20,21 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const senators = [
-  {
-    name: 'Elizabeth Warren',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg/480px-Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg',
-  },
-  {
-    name: 'Bernie Sanders',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bernie_Sanders.jpg/480px-Bernie_Sanders.jpg',
-  },
-  {
-    name: 'Kamala Harris',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kamala_Harris_in_2019.jpg/480px-Kamala_Harris_in_2019.jpg',
-  },
-];
-
 const SenatorList = ({rep}) => {
   const classes = useStyles();
 
