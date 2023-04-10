@@ -104,7 +104,7 @@ const Map = () => {
       </Container>
 
       <h2>Your Congressional District's Representative is:</h2>
-      {representatives?representatives &&
+      {representatives&&
         representatives.map((member, idx) => {
           return <RepCard key={idx} member={member} />;
         })}
