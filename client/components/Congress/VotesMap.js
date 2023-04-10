@@ -9,6 +9,7 @@ import Collapse from '@mui/material/Collapse';
 import BillCard from '../Bills/BillPageStyled';
 import { formatDate } from '../Functions';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,12 +47,15 @@ const VoteMenuList = ({vote}) => {
         <ListItem key={vote.id} className={classes.listItem}>
             <ListItemText
               className={classes.listItemText}
-              primary={`The member voted "${vote.position}" on "${
-                vote.bill.title
-              }" on ${formatDate(vote.date)}`}
+              primary={`The member voted "${vote.position} ${
+                vote.question
+              }" on ${formatDate(vote.date)}, resulting in "${vote.result}"`}
             />
-           
+            <Button variant="contained" color="primary" href={`#/bills/${vote.bill.bill_id}`}>
+                  Visit Page
+                </Button>
           </ListItem>
+          
         </List>
 
       </Collapse>

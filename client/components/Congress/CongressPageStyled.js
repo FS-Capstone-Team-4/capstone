@@ -7,6 +7,7 @@ import { blue, red } from "@mui/material/colors";
 import { formatDate, convertTerritory } from "../Functions";
 import MenuList from "../Bills/BillsMap";
 import VoteMenuList from "./VotesMap";
+import BillBlurbMap from "../Bills/BillBlurbMap";
 
 const useStyles = makeStyles((theme) => ({
   senatorCard: {
@@ -63,11 +64,11 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
       <List>
         <h3> Recent Bill Sponsorship </h3>
         {bills? bills.map((bill, index) => (
-      <MenuList bill = {bill}/>
+      <BillBlurbMap bill = {bill}/>
       )): ""}
         <h3> Recent Votes </h3>
         {votes.map((vote) => (
-          <VoteMenuList vote={vote} />
+          vote.bill.title && <VoteMenuList vote={vote} />
         ))}
       </List>
     </div>
