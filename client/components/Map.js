@@ -74,8 +74,6 @@ const Map = () => {
     getRepsAndSens(userLatitude, userLongitude);
   }, [userLatitude, userLongitude]);
   console.log(representatives);
-  console.log(senators);
-  console.log(congressMembers);
   return (
     <div>
       <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>

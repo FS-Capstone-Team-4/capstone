@@ -1,12 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import { formatDate } from '../Functions';
-import { Link as RouterLink } from 'react-router-dom';
 import BillVotes from './BillVotes';
-import Link from '@material-ui/core/Link';
 import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
