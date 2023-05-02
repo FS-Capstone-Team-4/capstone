@@ -4,9 +4,6 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import { formatDate } from '../Functions';
-import { Link as RouterLink } from 'react-router-dom';
-import BillVotes from './BillVotes';
-import Link from '@material-ui/core/Link';
 import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,13 +57,6 @@ const BillBlurb = ({bill}) => {
     
       </Typography>
       
-      {/* <Typography variant="body1" className={classes.summary}>
-      What's the latest?   
-      <br />
-       On {formatDate(bill.latest_major_action_date)}, the below happened:
-       <br />
-       {bill.latest_major_action}  
-       </Typography> */}
 
        <div>
                 <Button variant="contained" color="primary" href={`#/bills/${bill.bill_id}`}>

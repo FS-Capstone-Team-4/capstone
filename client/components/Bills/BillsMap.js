@@ -6,8 +6,6 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@mui/material/Collapse';
-import Link from '@mui/material/Link';
-import BillCard from './BillPageStyled';
 import BillBlurb from './BillBlurbStyled';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +43,6 @@ const MenuList = ({bill}) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <BillBlurb bill={bill}></BillBlurb>
-     
         </List>
       </Collapse>
     </List>:

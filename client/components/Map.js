@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
-import SenatorList from './SenatorListforMap';
 
 import RecenterMap from './RecenterMap';
 import RepCard from './RepCard';
-import SenatorCard from './SenatorCard';
 
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -24,14 +22,15 @@ const Map = () => {
 
   useEffect(() => {
     const getLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          setUserLatitude(position.coords.latitude);
-          setUserLongitude(position.coords.longitude);
-        });
-      // setUserLatitude(41.9725636);
-      // setUserLongitude(-87.6912325);
-      }}
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(position => {
+      //     setUserLatitude(position.coords.latitude);
+      //     setUserLongitude(position.coords.longitude);
+      //   });
+    
+      // }
+      setUserLatitude(41.9725636);
+      setUserLongitude(-87.6912325);}
     
 
     const fetchCongressMembers = async () => {
