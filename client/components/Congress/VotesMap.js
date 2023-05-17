@@ -1,28 +1,14 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@mui/material/Collapse';
-import BillCard from '../Bills/BillPageStyled';
 import { formatDate } from '../Functions';
-import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-}));
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Button } from '@mui/material';
 
 const VoteMenuList = ({vote}) => {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -33,7 +19,6 @@ const VoteMenuList = ({vote}) => {
     vote?
     <List
       component="nav"
-      className={classes.root}
       aria-label="menu list"
     >
       <ListItem button onClick={handleClick}>
@@ -44,9 +29,8 @@ const VoteMenuList = ({vote}) => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-        <ListItem key={vote.id} className={classes.listItem}>
+        <ListItem key={vote.id}>
             <ListItemText
-              className={classes.listItemText}
               primary={`The member voted "${vote.position} ${
                 vote.question
               }" on ${formatDate(vote.date)}, resulting in "${vote.result}"`}

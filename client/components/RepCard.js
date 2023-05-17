@@ -1,25 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@material-ui/core/Typography';
 import Button from '@mui/material/Button';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    padding: theme.spacing(2),
-    paddingLeft: '200px',
-  },
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '100%', // 16:9
-  },
-}));
+import { Typography } from '@mui/material';
 
 const RepCard = props => {
   function extractIdFromUrl(url) {
@@ -29,31 +13,45 @@ const RepCard = props => {
     }
     return null;
   }
+  let backgroundColor
 
-  const classes = useStyles();
+  props.member.party === "Democratic Party" ? 
+  backgroundColor="#2539ed"
+  :
+  props.member.party=== "Republican Party" ?
+  backgroundColor="#d63333"
+  :
+  backgroundColor="#595b60"
+
+
+
 
   return (
-    <div>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.media}
-                title={props.member.name}
-                image={props.member.photoUrl}
-              />
-              <CardContent>
-                <Typography gutterBottom variant='h5' component='h2'>
-                  {`${props.member.name} (${props.member.party})`}
-                </Typography>
-                <Button
+    <Card sx={{ flex: 1 }}>
+    <CardMedia
+      component="img"
+      title={props.member.name}
+      image={props.member.photoUrl}
+      sx={{ objectFit: 'cover',
+    height: '220px' }}
+    />
+    <CardContent>
+    <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: '10vh' }}>
+              {`${props.member.name}`}
+              </Typography>
+             <Button
                   variant='contained'
-                  color='primary'
+                  sx={{
+                    backgroundColor: backgroundColor,
+                  }}
                   href={`#/congressmembers/${extractIdFromUrl(props.member.photoUrl)}`}
                 >
                   Visit Page
                 </Button>
-              </CardContent>
-            </Card>
-    </div>
+    </CardContent>
+  </Card>
+
+      
   );
 };
 

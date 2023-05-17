@@ -1,76 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, InputLabel } from '@material-ui/core';
-import { MenuItem, Typography, Select} from '@mui/material'
+import { MenuItem, Typography, Select, FormControl, InputLabel} from '@mui/material'
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import CardGrid from './CongressCard2';
+import CardGrid from './CardGrid';
 import { Paper } from '@mui/material';
 import Button from '@mui/material/Button';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-    buttons: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-    paper: {
-      padding: theme.spacing(2),
-      marginBottom: theme.spacing(2),
-    },
-    paper2: {
-      minHeight:"600px",
-      minWidth:"100%",
-
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-  }));
-
-// const useStyles = makeStyles((theme) => ({
-//   formControl: {
-//     margin: theme.spacing(1),
-//     minWidth: 120,
-//   },
-
-//   root: {
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     height: '10vh',
-//     // flexDirection: 'column',
-
-//   },
-//   paper1: {
-//     display: 'flex',
-//     height: 200,
-//     width: 200,
-//     backgroundColor: 'red',
-//     marginBottom: 20,
-//   },
-//   paper2: {
-//     height: 100,
-//     width: 100,
-//     backgroundColor: 'blue',
-//     position: 'relative',
-//     top: -50,
-//   },
-// }));
-
+import {Box} from '@mui/material';
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const StateOptions = [
     { label: 'All', value: 'All' },
@@ -146,7 +83,6 @@ const PartyOptions = [
   ];
 
 const FourSelectOptions = () => {
-  const classes = useStyles();
 
 
   const [congressMembers, setCongressMembers] = useState([]);
@@ -158,7 +94,6 @@ const FourSelectOptions = () => {
 
 
   let filteredMembers = sortedMembers.filter((member) => {
-    console.log("member role", member.position, role)
     if (party !== "All" && member.party !== party) {
       return false;
     }
@@ -172,7 +107,6 @@ const FourSelectOptions = () => {
   });
 
   const handleSortChange = () => {
-    console.log("in the handleSort", sortBy)
 
     if (sortBy === "Name") {
       setSortedMembers(
@@ -198,10 +132,6 @@ const FourSelectOptions = () => {
         [...congressMembers].sort((a, b) => a.state.localeCompare(b.state))
       );
   };
-
-  console.log("congress members", congressMembers)
-  console.log("sorted members", sortedMembers)
-  console.log("filtered members", filteredMembers)
 
   const handleChange = (event) => {
     switch (event.target.name) {
@@ -231,16 +161,38 @@ useEffect(() => {
     };
     fetchCongressMembers();
     handleSortChange()
-    // setSortedMembers(congressMembers)
   }, []);
 
-
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        sm: 725, // Medium devices (tablets)
+      },
+    },
+  });
 
   return (
-    <div className = {classes.root}>
-        <Typography variant='h2'> View Congressmembers </Typography>
+    <ThemeProvider theme={theme}>
+    <Box sx= {{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      '& > *': {
+        margin: 1,
+      },
+    }}>
+        <Typography variant='h2' sx={{
+             [theme.breakpoints.down("sm")]: {
+              fontSize: "10vw",
+              textAlign: "center"
+            },
+        }}> View Congressmembers </Typography>
         <Paper >
-      <FormControl className={classes.formControl}>
+          
+      <FormControl sx={{
+            margin: 1,
+            minWidth: 120,
+      }}>
         <InputLabel id="option1-select-label">State</InputLabel>
         <Select
           labelId="option1-select-label"
@@ -257,7 +209,10 @@ useEffect(() => {
         </Select>
       </FormControl>
 
-      <FormControl className={classes.formControl}>
+      <FormControl sx={{
+            margin: 1,
+            minWidth: 120,
+      }}>
         <InputLabel id="option2-select-label">Role</InputLabel>
         <Select
           labelId="option2-select-label"
@@ -274,7 +229,10 @@ useEffect(() => {
         </Select>
       </FormControl>
 
-      <FormControl className={classes.formControl}>
+      <FormControl sx={{
+            margin: 1,
+            minWidth: 120,
+      }}>
         <InputLabel id="option3-select-label">Party</InputLabel>
         <Select
           labelId="option3-select-label"
@@ -290,16 +248,27 @@ useEffect(() => {
           ))}
         </Select>
       </FormControl>
-      <div className={classes.buttons}>
-      <Button variant="contained" color="primary" onClick={sortByName}>Show by name</Button>
-      <Button variant="contained" color="secondary" onClick={sortByState}>Show by state/territory</Button>
-      </div>
+      <Box sx={{
+             display: 'flex',
+             flexDirection: 'column',
+             alignItems: 'center',
+             margin: '10px',
+             '& > *': {
+              margin: '5px !important',
+            },
+      }}>
+      <Button margin='2px' variant="contained" color="primary" onClick={sortByName}>Show alphabetically by name</Button>
+      <Button marginTop='200px' variant="contained" color="secondary" onClick={sortByState}>Show alphabetically by state/territory</Button>
+      </Box>
       </Paper>
-      <Paper className={classes.paper2}>
+      <Paper sx={{   minHeight:"600px",
+      minWidth:"100%",}}>
       <CardGrid data={filteredMembers} />
       </Paper>
 
-</div>
+</Box>
+</ThemeProvider>
+
 )
 }
 

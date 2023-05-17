@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -8,58 +7,45 @@ import { formatDate, convertTerritory } from "../Functions";
 import MenuList from "../Bills/BillsMap";
 import VoteMenuList from "./VotesMap";
 import BillBlurbMap from "../Bills/BillBlurbMap";
-
-const useStyles = makeStyles((theme) => ({
-  senatorCard: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: theme.spacing(2),
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: theme.shape.borderRadius,
-    boxShadow: theme.shadows[1],
-  },
-  avatar: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
-    margin: theme.spacing(2),
-  },
-  listItem: {
-    padding: 0,
-  },
-  listItemText: {
-    margin: 0,
-  },
-  republican: {
-    backgroundColor: red[500],
-  },
-  democrat: {
-    backgroundColor: blue[500],
-  },
-}));
+import { Box } from "@mui/material";
 
 const CongressMemberPage = ({ rep, bills, votes, role }) => {
-  const classes = useStyles();
+
+  let backColor
+  rep.current_party === "D"
+  ?     backColor=blue[500]
+  : rep.current_party === "R"
+  ?     backColor=red[500]
+  : null
 
   return (
-    <div className={classes.senatorCard}>
+    <Box sx={{
+      display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: '16px',
+    backgroundColor: 'primary',
+    borderRadius: '4dp',
+    boxShadow: 1,
+    }}>
       <Avatar
-        className={
-          rep.current_party === "D"
-            ? classes.democrat
-            : rep.current_party === "R"
-            ? classes.republican
-            : null
-        }
+      align='center'
         src={rep.avatarUrl}
         alt={`${rep.firstName} ${rep.lastName}`}
+        sx={{
+          width: '80px',
+          height:'80px',
+          margin: '16px',
+         backgroundColor: backColor,
+        }}
       />
-      <Typography variant="h2">{`${rep.first_name} ${rep.last_name}`}</Typography>
-      <Typography variant="h4">{`State: ${convertTerritory(role.state)}`}</Typography>
-      <Typography variant="h4">{`Role: ${role.title}`}</Typography>
-      <Typography variant="h4">{`Total Votes: ${role.total_votes}`}</Typography>
-      <Typography variant="h4">{`Missed Votes: ${role.missed_votes}`}</Typography>
-      <Typography variant="h4">{`They've missed ${role.missed_votes_pct}% of votes`}</Typography>
+      <Typography align='center' variant="h2">{`${rep.first_name} ${rep.last_name}`}</Typography>
+      <Typography align='center' variant="h4">{`State: ${convertTerritory(role.state)}`}</Typography>
+      <Typography align='center' variant="h4">{`Role: ${role.title}`}</Typography>
+      <Typography align='center' variant="h4">{`Total Votes: ${role.total_votes}`}</Typography>
+      <Typography align='center' variant="h4">{`Missed Votes: ${role.missed_votes}`}</Typography>
+      <Typography align='center' variant="h4">{`They've missed ${role.missed_votes_pct}% of votes`}</Typography>
 
       <List>
         <h3> Recent Bill Sponsorship </h3>
@@ -71,7 +57,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
           vote.bill.title && <VoteMenuList vote={vote} />
         ))}
       </List>
-    </div>
+    </Box>
   );
 };
 
