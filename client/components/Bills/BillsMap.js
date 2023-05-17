@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@mui/material/Collapse';
 import BillBlurb from './BillBlurbStyled';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-}));
 
 const MenuList = ({bill}) => {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
-  console.log("bill" , bill)
 
   const handleClick = () => {
     setOpen(!open);
@@ -31,7 +19,6 @@ const MenuList = ({bill}) => {
     bill?
     <List
       component="nav"
-      className={classes.root}
       aria-label="menu list"
     >
       <ListItem button onClick={handleClick}>

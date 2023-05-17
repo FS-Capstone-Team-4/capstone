@@ -56,9 +56,7 @@ const CongressList = () => {
 
   return (
 
-    <div>
       <FourSelectOptions />
-    </div>
   );
 };
 

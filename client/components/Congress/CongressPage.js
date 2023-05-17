@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { formatDate, convertTerritory } from "../Functions";
+import { formatDate,} from "../Functions";
 import CongressMemberPage from "./CongressPageStyled";
 
 const CongressPage = () => {
@@ -16,45 +15,41 @@ const CongressPage = () => {
     const { CongressId } = useParams();
 
     const [singleMember, setSingleMember] = useState([]);
+    const [billsByMember, setBillsByMember] = useState([]);
+    const [votesByMember, setVotesByMember] = useState([]);
     let currentRole = {};
 
     useEffect(() => {
         const fetchSingleMember = async (memberId) => {
-        const response = await axios.get(
+
+        //single member
+        const memberResponse = await axios.get(
             `https://api.propublica.org/congress/v1/members/${memberId}.json`,
             config
         );
-        setSingleMember(response.data.results[0]);
-        };
-        fetchSingleMember(CongressId);
-    }, []);
-    console.log(singleMember, "single member");
 
-    const [billsByMember, setBillsByMember] = useState([]);
+        setSingleMember(memberResponse.data.results[0]);
 
-    useEffect(() => {
-      const fetchBillsByMember = async (memberId) => {
-        const response = await axios.get(
+          //bills introduced
+        const billsIntroResponse = await axios.get(
           `https://api.propublica.org/congress/v1/members/${memberId}/bills/introduced.json`,
           config
         );
-        setBillsByMember(response.data.results[0].bills);
-      };
-      fetchBillsByMember(CongressId);
-    }, []);
 
-    const [votesByMember, setVotesByMember] = useState([]);
+        setBillsByMember(billsIntroResponse.data.results[0].bills);
 
-    useEffect(() => {
-      const fetchVotesByMember = async (memberId) => {
-        const response = await axios.get(
+        //votes
+        const votesResponse = await axios.get(
+
           `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`,
           config
         );
-        setVotesByMember(response.data.results[0].votes);
-      };
-      fetchVotesByMember(CongressId);
+
+        setVotesByMember(votesResponse.data.results[0].votes);
+        };
+        fetchSingleMember(CongressId);
     }, []);
+
 
     //getting first start date from object
     const firstStartDate = (member) => {
@@ -75,11 +70,9 @@ const CongressPage = () => {
             return 0;
         }
     }
-    console.log(votesByMember, "votes by member");
+
     return (
-        <div>
             <CongressMemberPage rep = {singleMember} bills = {billsByMember} votes = {votesByMember} role = {setCurrentRole(singleMember)}/>
-        </div>
     )
 }
 

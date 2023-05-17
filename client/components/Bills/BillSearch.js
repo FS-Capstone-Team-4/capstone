@@ -1,41 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
 import { Paper, InputBase } from "@mui/material";
 import { IconButton, Typography } from "@mui/material";
-import SearchIcon from "@material-ui/icons/Search";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from "./BillsMap";
+import SearchIcon from '@mui/icons-material/Search';
+import {Box} from "@mui/material";
 
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center",
-    width: 400,
-    margin: "auto",
-  },
-  root2: {
-    padding: "10px 20px",
-    display: "flex",
-    alignItems: "center",
-    width: 400,
-    margin: "auto",
-    textAlign: 'center',
-    align: "center"
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1,
-  },
-  iconButton: {
-    padding: 10,
-  },
-}));
+//WORK ON THIS PAGE
 
 const BillSearch = () => {
   const [value, setValue] = useState(""); // Here we'll store the value of the search bar's text input
@@ -64,7 +38,6 @@ const BillSearch = () => {
   const [bills, setBills] = useState([]);
 
   const fetchBills = async (query) => {
-    console.log("fetching");
     const response = await axios.get(
       `https://api.propublica.org/congress/v1/bills/search.json?query=${query}`,
       config
@@ -73,14 +46,19 @@ const BillSearch = () => {
   };
 
   const [showMore, setShowMore] = useState(Array(bills.length).fill(false));
-  console.log(bills, "bills");
 
-  const classes = useStyles();
 
 
   return (
-    <div>
-      <div>
+    <Box>
+      <Box sx={{
+         padding: "2px 4px",
+         display: "flex",
+         alignItems: "center",
+         flexDirection:'column',
+         width: 400,
+         margin: "auto",
+      }}>
         <Typography
           variant="h4"
           align="center"
@@ -89,32 +67,40 @@ const BillSearch = () => {
           paddingBottom="10px"
         >
           Look up a bill
-        </Typography>{" "}
-        <Paper component="form" className={classes.root}>
+        </Typography>
+        <Paper component="form" sx={{
+          padding: "2px 4px",
+          display: "flex",
+          alignItems: "center",
+          width: 400,
+          margin: "auto",
+        }}>
           <InputBase
-            className={classes.input}
             placeholder="Search for something"
             inputProps={{ "aria-label": "search for something" }}
           value={value}
           onChange={onChange}
+          sx= {{
+            marginLeft: '8px',
+            flex: 1
+          }}
           />
           <IconButton
             type="submit"
-            className={classes.iconButton}
             aria-label="search"
             onClick = {search}
-
+            sx={{
+              // padding: 10,
+            }}
           >
             <SearchIcon />
           </IconButton>
         </Paper>
-      </div>
-
-      <div className={classes.root2}>
-      <Typography variant="subtitle1" align="center" color="textSecondary" >
+        <Typography variant="subtitle1" align="center" color="textSecondary" >
         Or select from popular bill topics
       </Typography>
-      <Select className={classes.selector} variant="outlined" defaultValue="" onChange={(e) => filterBills(e.target.value)}>
+    
+      <Select variant="outlined" defaultValue="" onChange={(e) => filterBills(e.target.value)}>
         <MenuItem value="">-- Select a Bill Topic --</MenuItem>
         <MenuItem value="healthcare">Healthcare</MenuItem>
         <MenuItem value="education">Education</MenuItem>
@@ -124,13 +110,28 @@ const BillSearch = () => {
         <MenuItem value="civil rights">Civil Rights</MenuItem>
 
       </Select>
+      </Box>
+
+      <Box 
+      sx= {{
+           padding: "10px 20px",
+           display: "flex",
+           alignItems: "center",
+           width: 400,
+           margin: "auto",
+           textAlign: "center",
+           align: "center"
+      }}
+      >
       
-    </div>
+    
+
+    </Box>
 
       {bills? bills.map((bill, index) => (
       <MenuList bill = {bill}/>
       )): ""}
-    </div>
+    </Box>
     
   );
 };

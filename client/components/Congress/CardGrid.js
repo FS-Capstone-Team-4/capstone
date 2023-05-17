@@ -1,43 +1,35 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@material-ui/core/Typography';
 import Button from '@mui/material/Button';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    padding: theme.spacing(2),
-    paddingLeft: '200px',
-  },
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '100%', // 16:9
-  },
-}));
+import { Typography } from '@mui/material';
 
 const CardGrid = ({ data }) => {
-  const classes = useStyles();
-
 
   return (
-    <div>
-      <Grid container spacing={3}>
+      <Grid container spacing={2} sx={{
+        display: 'flex',
+        justifyContent:"center"
+      }}>
         {data.map(item => (
-          <Grid item xs={12} sm={6} md={4} key={item.id}>
-            <Card className={classes.card}>
+          <Grid item key={item.id} xs={6} md={12} justifyContent="center" alignItems="center">
+            <Card sx={{
+              width: "300px",
+              height: "400px"
+                
+            }}>
               <CardMedia
-                className={classes.media}
+              
                 title={item.name}
                 image={`http://bioguide.congress.gov/bioguide/photo/${item.name
                   .split(' ')[1][0]
                   .toUpperCase()}/${item.CongressId}.jpg`}
+                sx={{
+                  height: 0,
+                  paddingTop: '100%', // 16:9              
+                }}
               />
               <CardContent>
                 <Typography gutterBottom variant='h5' component='h2'>
@@ -55,7 +47,6 @@ const CardGrid = ({ data }) => {
           </Grid>
         ))}
       </Grid>
-    </div>
   );
 };
 
