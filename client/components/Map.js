@@ -32,8 +32,8 @@ const Map = () => {
           setUserLongitude(position.coords.longitude);
         });
       }
-      setUserLatitude(41.9725636);
-      setUserLongitude(-87.6912325);
+      // setUserLatitude(41.9725636);
+      // setUserLongitude(-87.6912325);
     };
 
     const fetchCongressMembers = async () => {
