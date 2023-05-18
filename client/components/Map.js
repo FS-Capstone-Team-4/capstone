@@ -15,8 +15,8 @@ const Map = () => {
     [49.38, -66.94], //Northeast
   ];
 
-  const [userLatitude, setUserLatitude] = useState(41.9725636);
-  const [userLongitude, setUserLongitude] = useState(-87.6912325);
+  const [userLatitude, setUserLatitude] = useState(null);
+  const [userLongitude, setUserLongitude] = useState(null);
   const [congressMembers, setCongressMembers] = useState(null);
   const [senators, setSenators] = useState(null);
   const [representatives, setRepresentatives] = useState(null);
