@@ -15,8 +15,8 @@ const Map = () => {
     [49.38, -66.94], //Northeast
   ];
 
-  const [userLatitude, setUserLatitude] = useState(null);
-  const [userLongitude, setUserLongitude] = useState(null);
+  const [userLatitude, setUserLatitude] = useState(41.9725636);
+  const [userLongitude, setUserLongitude] = useState(-87.6912325);
   const [congressMembers, setCongressMembers] = useState(null);
   const [senators, setSenators] = useState(null);
   const [representatives, setRepresentatives] = useState(null);
@@ -25,9 +25,7 @@ const Map = () => {
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
-        console.log("location" , navigator.geolocation)
         navigator.geolocation.getCurrentPosition(position => {
-          console.log("geolocation", position.coords.latitude)
           setUserLatitude(position.coords.latitude);
           setUserLongitude(position.coords.longitude);
         });
