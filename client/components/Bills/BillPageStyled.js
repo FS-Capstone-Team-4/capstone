@@ -19,6 +19,7 @@ const BillCard = ({bill}) => {
 }
 
   return (
+
     <Paper sx={{
       display: 'flex',
       flexDirection: 'column',
@@ -27,6 +28,8 @@ const BillCard = ({bill}) => {
       padding: '16px',
       margin: '16px',
     }}>
+      { bill?
+      <div>
       <Typography variant="h5" sx={{fontWeight: 'bold',
     marginBottom: '8px',
     textAlign: 'center',
@@ -64,9 +67,11 @@ const BillCard = ({bill}) => {
        <div>
                 {latestVote() ?  <BillVotes bill={bill}/> : ''}
             </div>
-
-    
-    </Paper>
+            </div>
+:
+"null"
+}
+    </Paper> 
   );
 };
 

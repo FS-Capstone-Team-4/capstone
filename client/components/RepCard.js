@@ -4,6 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
+// import fillerImage from '../../public/vector-users-icon.jpeg'
 
 const RepCard = props => {
   function extractIdFromUrl(url) {
@@ -16,12 +17,21 @@ const RepCard = props => {
   let backgroundColor
 
   props.member.party === "Democratic Party" ? 
-  backgroundColor="#2539ed"
+  backgroundColor="primary"
   :
   props.member.party=== "Republican Party" ?
   backgroundColor="#d63333"
   :
   backgroundColor="#595b60"
+
+
+  let image 
+
+
+  props.member.photoUrl ? 
+  image = true :
+  image = false
+
 
 
 
@@ -31,7 +41,10 @@ const RepCard = props => {
     <CardMedia
       component="img"
       title={props.member.name}
-      image={props.member.photoUrl}
+      image={
+        image ? 
+        props.member.photoUrl : 
+        '/public/vector-users-icon.jpeg'}
       sx={{ objectFit: 'cover',
     height: '220px' }}
     />

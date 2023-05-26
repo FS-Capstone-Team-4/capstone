@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, ThemeProvider} from '@mui/material'
+import {Box, Button, ThemeProvider, Typography} from '@mui/material'
 import { useState, useEffect } from "react";
 import RepCard from "../RepCard";
 import { createTheme } from "@mui/material";
@@ -29,6 +29,7 @@ const RepsBox = ({ senators, representatives }) => {
 
   return (
     <ThemeProvider theme={theme}>
+    {representatives?     
     <Box
     sx={{
         display: "flex",
@@ -38,7 +39,8 @@ const RepsBox = ({ senators, representatives }) => {
         position: "relative",
         bgcolor: "white",
         zIndex: '999',
-        height: '500px',
+        height: '70vh',
+        marginTop: '20px',
 
         [theme.breakpoints.up('md')]: {
             position: 'absolute',
@@ -58,7 +60,8 @@ const RepsBox = ({ senators, representatives }) => {
     <Button
       variant={showSenators ? "contained" : "outlined"}
       color="primary"
-      sx={{ marginBottom: 2 }}
+      sx={{ marginBottom: 2,
+       }}
       onClick={handleToggle}
     >
       Senators
@@ -94,15 +97,42 @@ const RepsBox = ({ senators, representatives }) => {
       )
     ) : null}
   </Box>
+  : 
   <Box
   sx={{
-    [theme.breakpoints.down('md')]: {
-      height:'50px',
-      bgcolor: 'white'
-      }
-  }}>
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+    bgcolor: "white",
+    zIndex: '999',
+    height: '60px',
+    marginTop: '20px',
 
-  </Box>
+    [theme.breakpoints.up('md')]: {
+        position: 'absolute',
+        marginTop: '0px',
+        top: '50%',
+        left: '80%',
+        borderRadius: 3,
+        boxShadow: 6,
+        padding: 3,
+        opacity: isRepsBoxVisible ? 1 : 0,
+        transition: "opacity 1s ease-in-out",  
+        transform: 'translate(-50%, -50%)',
+      },
+  }}
+  > 
+  <Typography
+   variant="h4"
+   sx={{ fontSize: "20px", fontWeight: "bold" }}
+  >
+    Loading your congresspeople....
+  </Typography>
+    
+    </Box>}
+
   </ThemeProvider>
   );
 };

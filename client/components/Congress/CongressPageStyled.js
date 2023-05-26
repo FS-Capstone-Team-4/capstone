@@ -51,7 +51,17 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         <h3> Recent Bill Sponsorship </h3>
         {bills? bills.map((bill, index) => (
       <BillBlurbMap bill = {bill}/>
-      )): ""}
+      )): 
+      <Box>
+      <Typography
+      variant="h4"
+      sx={{ fontSize: "20px", fontWeight: "bold" }}
+     >
+       Loading your congresspeople....
+     </Typography>
+     </Box>
+      
+      }
         <h3> Recent Votes </h3>
         {votes.map((vote) => (
           vote.bill.title && <VoteMenuList vote={vote} />
