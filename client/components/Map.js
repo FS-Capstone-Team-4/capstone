@@ -45,16 +45,18 @@ const Map = () => {
 
   useEffect(() => {
     function getRepsAndSens(latitude, longitude) {
-      const googleApiKey = "AIzaSyAy4C9YFvTsAKiC7Yl0_DyAfwph0aUgxyQ";
-      const civicApiKey = "AIzaSyCfGbL-JEtCLsPhWggy6uZB6yoFzngn-AY";
+      const googleApiKey = "AIzaSyB4VKJtLFgLLnWldpXrucEnyD9iE7pMiwg";
+      const civicApiKey = "AIzaSyB4VKJtLFgLLnWldpXrucEnyD9iE7pMiwg";
+
+      console.log("lat and long", latitude,longitude)
 
       const googleUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleApiKey}`;
       axios
         .get(googleUrl)
         .then((response) => {
+          console.log("response", response.data.error_message)
           const address = response.data.results[0].formatted_address;
           const civicUrl = `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&roles=legislatorLowerBody&roles=legislatorUpperBody&key=${civicApiKey}`;
-
           axios
             .get(civicUrl)
             .then((response) => {
