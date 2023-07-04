@@ -4,7 +4,8 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
-// import fillerImage from '../../public/vector-users-icon.jpeg'
+import PersonIcon from '@mui/icons-material/Person';
+// import photo from './AltPhoto2.jpeg'
 
 const RepCard = props => {
   function extractIdFromUrl(url) {
@@ -38,16 +39,19 @@ const RepCard = props => {
 
   return (
     <Card sx={{ flex: 1 }}>
-    <CardMedia
+    {image? <CardMedia
       component="img"
       title={props.member.name}
-      image={
-        image ? 
-        props.member.photoUrl : 
-        '/public/vector-users-icon.jpeg'}
+      image={ props.member.photoUrl}
       sx={{ objectFit: 'cover',
     height: '220px' }}
-    />
+    /> :
+    <PersonIcon sx= {{
+      height: "200px",
+      width: "auto",
+    }
+    }
+    />}
     <CardContent>
     <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: '10vh' }}>
               {`${props.member.name}`}
