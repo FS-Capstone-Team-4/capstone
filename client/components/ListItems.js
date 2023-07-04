@@ -4,6 +4,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PeopleIcon from '@mui/icons-material/People';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import MapIcon from '@mui/icons-material/Map';
 import { Link } from '@mui/material';
 
@@ -34,7 +35,15 @@ export const MainListItems = () => {
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Members of Congress" />
+      <ListItemText primary="Congressmembers" />
+    </ListItemButton>
+    </Link>
+    <Link href = 'https://github.com/FS-Capstone-Team-4/capstone' color="inherit" underline = "none">
+    <ListItemButton>
+      <ListItemIcon>
+        <GitHubIcon />
+      </ListItemIcon>
+      <ListItemText primary="Github" />
     </ListItemButton>
     </Link>
     </div>
