@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-import RepCard from "../RepCard";
+import RepCard from "./RepCard";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 const IntroText = ({ senators, representatives }) => {
@@ -61,8 +61,8 @@ const IntroText = ({ senators, representatives }) => {
           }}
         >
           Polifacts makes information about your congressmembers easy and
-          accessible. Once you share your location, click to the right to view
-          recent votes and bills sponsored by your congressmembers. If you want
+          accessible. Once you enter your zipcode, click to the right to view
+          details on your local representatives. If you want
           to learn about other states and bills or decided not to share your
           location, navigate our sidebar to the left to learn more about bills
           by keyword or search members by state.

@@ -13,11 +13,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { MainListItems } from "./ListItems";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import CongressList from "./Congress/CongressList";
-import CongressPage from "./Congress/CongressPage";
-import BillGeneral from "./Bills/BillGeneral";
-import BillPage from "./Bills/BillPage";
-import Map from "./Map";
+import CongressList from "../Congress/CongressList";
+import CongressPage from "../Congress/CongressPage";
+import BillGeneral from "../Bills/BillGeneral";
+import BillPage from "../Bills/BillPage";
+import Map from "../MapDisplay/Map";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 //https://mui.com/material-ui/getting-started/templates/dashboard/
@@ -144,7 +144,6 @@ function DashboardContent() {
   <Box
     component="main"
     sx={{
-      // backgroundColor: 'lightBlue',
       flexGrow: 1,
       width: '100vw',
       height: '100vh',

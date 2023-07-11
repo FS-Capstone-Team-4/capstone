@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard/Dashboard";
 
 const App = () => {
   const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";

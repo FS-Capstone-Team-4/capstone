@@ -5,7 +5,7 @@ const RecenterMap = ({ lat, long }) => {
   const map = useMap();
 
   useEffect(() => {
-    map.setView([lat, long], 7);
+    map.setView([lat, long], 10);
   }, [lat, long]);
 
   return null;

@@ -1,11 +1,11 @@
 import React from "react";
 import {Box, Button, ThemeProvider, Typography} from '@mui/material'
 import { useState, useEffect } from "react";
-import RepCard from "../RepCard";
+import RepCard from "./RepCard";
 import { createTheme } from "@mui/material";
 
 
-const RepsBox = ({ senators, representatives }) => {
+const RepsBox = ({ senators, setSenators, representatives }) => {
     const [showSenators, setShowSenators] = useState(true);
     const [isRepsBoxVisible, setIsRepsBoxVisible] = useState(false);
 
@@ -39,7 +39,7 @@ const RepsBox = ({ senators, representatives }) => {
         position: "relative",
         bgcolor: "white",
         zIndex: '999',
-        height: '70vh',
+        height: '75vh',
         marginTop: '20px',
 
         [theme.breakpoints.up('md')]: {
@@ -96,6 +96,14 @@ const RepsBox = ({ senators, representatives }) => {
 
       )
     ) : null}
+    <Button sx={{
+      padding: '10px',
+      marginTop: '10px'
+    }}
+    onClick={()=>{
+      setSenators(null)
+    }}
+    > Enter a new zip code</Button>
   </Box>
   : 
   <Box
@@ -120,18 +128,13 @@ const RepsBox = ({ senators, representatives }) => {
         padding: 3,
         opacity: isRepsBoxVisible ? 1 : 0,
         transition: "opacity 1s ease-in-out",  
-        transform: 'translate(-50%, -50%)',
+        transform: 'translate(-75%, -50%)',
       },
   }}
   > 
-  <Typography
-   variant="h4"
-   sx={{ fontSize: "20px", fontWeight: "bold" }}
-  >
-    Loading your congresspeople....
-  </Typography>
-    
-    </Box>}
+    Something isn't working. Try again.
+    </Box>
+    }
 
   </ThemeProvider>
   );
