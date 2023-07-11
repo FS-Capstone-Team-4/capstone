@@ -60,9 +60,9 @@ const IntroText = ({ senators, representatives }) => {
             textAlign: "left",
           }}
         >
-          Polifacts makes information about your congressmembers easy and
-          accessible. Once you enter your zipcode, click to the right to view
-          details on your local representatives. If you want
+          Polifacts makes information about your congressmembers easily
+          accessible. Once you enter your zipcode, click to view
+          details about your local representatives. If you want
           to learn about other states and bills or decided not to share your
           location, navigate our sidebar to the left to learn more about bills
           by keyword or search members by state.
