@@ -19,6 +19,8 @@ const CongressPage = () => {
     const [votesByMember, setVotesByMember] = useState([]);
     let currentRole = {};
 
+    console.log("single member", singleMember)
+
     useEffect(() => {
         const fetchSingleMember = async (memberId) => {
 

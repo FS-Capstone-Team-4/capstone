@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@mui/material/Paper';
+import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import { formatDate } from '../Functions';
@@ -9,7 +10,7 @@ import Button from '@mui/material/Button';
 
 const BillCard = ({bill}) => {
 
-    
+    console.log("bill", bill)
   let vote = null;
   const latestVote = () => {
     if (bill.votes && bill.votes.length > 0) {
@@ -30,6 +31,7 @@ const BillCard = ({bill}) => {
     }}>
       { bill?
       <div>
+        <Box sx={{display:'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
       <Typography variant="h5" sx={{fontWeight: 'bold',
     marginBottom: '8px',
     textAlign: 'center',
@@ -38,21 +40,28 @@ const BillCard = ({bill}) => {
       </Typography>
       <Divider />
       <Typography variant="body1" sx={{
-            marginTop: '8px',
-            marginBottom: '16px',        
+        margin: '10px',
+            textAlign: 'center'     
       }}>
-      Sponsor: {bill.sponsor} ({bill.sponsor_party}) <Button variant="contained" color="primary" href={`#/congressmembers/${bill.sponsor_id}`}>
+        
+      Sponsor: {bill.sponsor_name || bill.sponsor} ({bill.sponsor_party}) 
+      </Typography>
+<Button variant="contained" sx={{        margin: '5px'
+, width: "150px" }} color="primary" href={`#/congressmembers/${bill.sponsor_id}`}>
                   Visit Page
                 </Button>
-      </Typography>
+
       <Typography variant="body2" sx = {{
             fontStyle: 'italic',
-         
+            textAlign: 'center', 
+            margin: '5px'
+
       }}>
       Introduced on {formatDate(bill.introduced_date)}
       <br></br>
     
       </Typography>
+      </Box>
       
       <Typography variant="body1">
       <b>Full title of bill:</b> {bill.title}

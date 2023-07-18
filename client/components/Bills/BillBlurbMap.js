@@ -6,6 +6,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Collapse from '@mui/material/Collapse';
 import BillBlurb from './BillBlurbStyled';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import BillPage from './BillPage';
+import BillCard from './BillPageStyled';
 
 
 const BillBlurbMap = ({bill}) => {
@@ -32,7 +34,7 @@ const BillBlurbMap = ({bill}) => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <BillBlurb bill={bill}></BillBlurb>
+        <BillCard bill={bill} />
         </List>
       </Collapse>
     </List>:

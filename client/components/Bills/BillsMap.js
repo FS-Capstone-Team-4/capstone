@@ -4,8 +4,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Collapse from '@mui/material/Collapse';
-import BillBlurb from './BillBlurbStyled';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import BillCard from "./BillPageStyled";
+
 
 
 const MenuList = ({bill}) => {
@@ -29,7 +30,7 @@ const MenuList = ({bill}) => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <BillBlurb bill={bill}></BillBlurb>
+          <BillCard bill={bill}></BillCard>
         </List>
       </Collapse>
     </List>:
