@@ -12,7 +12,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LanguageIcon from "@mui/icons-material/Language";
-import FeedIcon from '@mui/icons-material/Feed';
+import FeedIcon from "@mui/icons-material/Feed";
 import { Box } from "@mui/material";
 
 const CongressMemberPage = ({ rep, bills, votes, role }) => {
@@ -23,7 +23,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
     ? (backColor = red[500])
     : null;
 
-  let iconColor="grey"
+  let iconColor = "grey";
   return (
     <Box
       sx={{
@@ -31,10 +31,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "16px",
-        backgroundColor: "primary",
-        borderRadius: "4dp",
-        boxShadow: 1,
+        padding: "50px",
       }}
     >
       <Avatar
@@ -68,7 +65,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         align="center"
         variant="h4"
       >{`They've missed ${role.missed_votes_pct}% of votes`}</Typography> */}
-      <Box>
+      <Box sx={{padding: '40px'}}>
         <IconButton
           component="a"
           href={`https://www.facebook.com/${rep.facebook_account}`}
@@ -116,9 +113,12 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
           />
         </IconButton>
       </Box>
-
+      <Typography align="center" variant="h5">
+          Some bills may repeat. This means that there have been different actions on the same bill.
+        </Typography>
       <List>
         <h3> Recent Bill Sponsorship </h3>
+     
         {bills ? (
           bills.map((bill, index) => <BillBlurbMap bill={bill} />)
         ) : (

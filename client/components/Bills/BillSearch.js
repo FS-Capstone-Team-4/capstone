@@ -50,7 +50,9 @@ const BillSearch = () => {
 
 
   return (
-    <Box>
+    <Box sx={{
+     margin: "50px"
+   }}>
       <Box sx={{
          padding: "2px 4px",
          display: "flex",
