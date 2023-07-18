@@ -71,7 +71,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
       <Box>
         <IconButton
           component="a"
-          href={`facebook.com/${rep.facebook}`}
+          href={`https://www.facebook.com/${rep.facebook_account}`}
           target="_blank"
         >
           <FacebookIcon
@@ -80,7 +80,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         </IconButton>
         <IconButton
           component="a"
-          href={`twitter.com/${rep.twitter_account}`}
+          href={`https://www.twitter.com/${rep.twitter_account}`}
           target="_blank"
         >
           <TwitterIcon
@@ -89,7 +89,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         </IconButton>
         <IconButton
           component="a"
-          href={`www.youtube.com/${rep.youtube_account}`}
+          href={`https://www.youtube.com/${rep.youtube_account}`}
           target="_blank"
         >
           <YouTubeIcon
