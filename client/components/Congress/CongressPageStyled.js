@@ -73,7 +73,6 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
           component="a"
           href={`facebook.com/${rep.facebook}`}
           target="_blank"
-          rel="noopener noreferrer"
         >
           <FacebookIcon
             style={{ height: "60px", width: "auto", color: iconColor }}
@@ -83,7 +82,6 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
           component="a"
           href={`twitter.com/${rep.twitter_account}`}
           target="_blank"
-          rel="noopener noreferrer"
         >
           <TwitterIcon
             style={{ height: "60px", width: "auto", color: iconColor }}
@@ -91,9 +89,8 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         </IconButton>
         <IconButton
           component="a"
-          href={`twitter.com/${rep.youtube_account}`}
+          href={`www.youtube.com/${rep.youtube_account}`}
           target="_blank"
-          // rel="noopener noreferrer"
         >
           <YouTubeIcon
             style={{ height: "60px", width: "auto", color: iconColor }}
@@ -113,7 +110,6 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
           component="a"
           href={`${rep.times_topics_url}`}
           target="_blank"
-          // rel="noopener noreferrer"
         >
           <FeedIcon
             style={{ height: "60px", width: "auto", color: iconColor }}
