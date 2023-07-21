@@ -13,6 +13,8 @@ import {Box} from "@mui/material";
 
 const BillSearch = () => {
   const [value, setValue] = useState(""); // Here we'll store the value of the search bar's text input
+  const [loadingBills, setLoadingBills] = useState(false); // Here we'll store the value of the search bar's text input
+
   const onChange = (ev) => {
     setValue(ev.target.value);
   };
@@ -38,11 +40,13 @@ const BillSearch = () => {
   const [bills, setBills] = useState([]);
 
   const fetchBills = async (query) => {
+    setLoadingBills(true)
     const response = await axios.get(
       `https://api.propublica.org/congress/v1/bills/search.json?query=${query}`,
       config
     );
     setBills(response.data.results[0].bills);
+    setLoadingBills(false)
   };
 
   const [showMore, setShowMore] = useState(Array(bills.length).fill(false));
@@ -132,7 +136,8 @@ const BillSearch = () => {
 
       {bills? bills.map((bill, index) => (
       <MenuList bill = {bill}/>
-      )): ""}
+      )): loadingBills? 
+      <h1> Loading Bills </h1>: null }
     </Box>
     
   );
