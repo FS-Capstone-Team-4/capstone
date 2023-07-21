@@ -47,8 +47,8 @@ const BillCard = ({bill}) => {
       Sponsor: {bill.sponsor_name || bill.sponsor} ({bill.sponsor_party}) 
       </Typography>
 <Button variant="contained" sx={{        margin: '5px'
-, width: "150px" }} color="primary" href={`#/congressmembers/${bill.sponsor_id}`}>
-                  Visit Page
+, width: "250px" }} color="primary" href={`#/congressmembers/${bill.sponsor_id}`}>
+                  Visit Sponsor's Page
                 </Button>
 
       <Typography variant="body2" sx = {{
