@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 
 const CardGrid = ({ data }) => {
+  console.log("data", data)
 
   return (
       <Grid container spacing={2} sx={{
