@@ -4,12 +4,6 @@
 
 This document describes our team social contract for this project
 
-## Roles:
-
-* Task master: 
-* Git master: 
-* Test master: 
-
 ## Daily Process
 
 * Start with a group standup (less than 15 mins total)
