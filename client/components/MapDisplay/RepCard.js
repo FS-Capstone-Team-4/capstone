@@ -10,6 +10,7 @@ import PersonIcon from '@mui/icons-material/Person';
 const RepCard = props => {
   function extractIdFromUrl(url) {
     if(url){
+      console.log("url", url)
       const parts = url.split('/');
       return parts.pop().split('.')[0];
     }

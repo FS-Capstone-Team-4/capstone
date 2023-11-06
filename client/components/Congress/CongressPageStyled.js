@@ -65,7 +65,7 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         align="center"
         variant="h4"
       >{`They've missed ${role.missed_votes_pct}% of votes`}</Typography> */}
-      <Box sx={{padding: '40px'}}>
+      <Box sx={{ padding: "40px" }}>
         <IconButton
           component="a"
           href={`https://www.facebook.com/${rep.facebook_account}`}
@@ -114,11 +114,12 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
         </IconButton>
       </Box>
       <Typography align="center" variant="h5">
-          Some bills may repeat. This means that there have been different actions on the same bill.
-        </Typography>
+        Some bills may repeat. This means that there have been different actions
+        on the same bill.
+      </Typography>
       <List>
         <h3> Recent Bill Sponsorship </h3>
-     
+
         {bills ? (
           bills.map((bill, index) => <BillBlurbMap bill={bill} />)
         ) : (
@@ -139,3 +140,34 @@ const CongressMemberPage = ({ rep, bills, votes, role }) => {
 };
 
 export default CongressMemberPage;
+
+//  const fetchSingleMember = async (memberId) => {
+//   //single member
+//   const memberResponse = await axios.get(
+//     `https://api.propublica.org/congress/v1/members/${memberId}.json`,
+//     config
+//   );
+
+//   setSingleMember(memberResponse.data.results[0]);
+// };
+
+// const fetchSingleMemberBills = async (memberId) => {
+//   //bills introduced
+//   const billsIntroResponse = await axios.get(
+//     `https://api.propublica.org/congress/v1/members/${memberId}/bills/introduced.json`,
+//     config
+//   );
+
+//   setBillsByMember(billsIntroResponse.data.results[0].bills);
+// };
+
+// const fetchSingleMemberVotes = async (memberId) => {
+//   const votesResponse = await axios.get(
+//     `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`,
+//     config
+//   );
+
+//   setVotesByMember(votesResponse.data.results[0].votes);
+// };
+
+// fetchSingleMember(CongressId);
