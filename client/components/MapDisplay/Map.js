@@ -23,7 +23,6 @@ const Map = () => {
   // const googleApiKey = "AIzaSyB4VKJtLFgLLnWldpXrucEnyD9iE7pMiwg";
   const googleApiKey = "AIzaSyC4x13WwvzQouJphFBBz3UjyIzVhm4NTGo";
 
-
   const getLocation = () => {
     if (zipcode) {
       const latLongUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${googleApiKey}&components=postal_code:${zipcode}`;
