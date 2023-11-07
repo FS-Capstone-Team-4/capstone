@@ -21,14 +21,14 @@ const Map = () => {
   const [zipcode, setZipcode] = useState(null);
 
   // const googleApiKey = "AIzaSyB4VKJtLFgLLnWldpXrucEnyD9iE7pMiwg";
-  const googleApiKey = "AIzaSyC4x13WwvzQouJphFBBz3UjyIzVhm4NTGo";
+  const googleApiKey = "AIzaSyB5z1jLjrh5UfjIjRo8NDxOLS4uVT-9YEQ";
 
   const getLocation = () => {
     if (zipcode) {
       const latLongUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${googleApiKey}&components=postal_code:${zipcode}`;
 
       axios.get(latLongUrl).then((response) => {
-        console.log(response.data.results[0].geometry.location);
+        console.log(response);
         const latAndLong = response.data.results[0].geometry.location;
         setUserLatitude(latAndLong.lat);
         setUserLongitude(latAndLong.lng);
