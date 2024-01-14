@@ -39,7 +39,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
         position: "relative",
         bgcolor: "white",
         zIndex: '999',
-        height: '75vh',
+        height: '85vh',
         marginTop: '20px',
 
         [theme.breakpoints.up('md')]: {
@@ -62,7 +62,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
       variant={showSenators ? "contained" : "outlined"}
       color="primary"
       sx={{ marginBottom: 2,
-       }}
+      padding: "0 10px" }}
       onClick={handleToggle}
     >
       Senators
@@ -70,7 +70,8 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
     <Button
       variant={!showSenators ? "contained" : "outlined"}
       color="primary"
-      sx={{ marginBottom: 2 }}
+      sx={{ marginBottom: 2,
+      padding: "0 10px" }}
       onClick={handleToggle}
     >
       Representatives

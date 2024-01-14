@@ -66,9 +66,6 @@ const IntroText = ({ senators, representatives }) => {
           to learn about other states and bills or decided not to share your
           location, navigate our sidebar to the left to learn more about bills
           by keyword or search members by state.
-          <br></br>
-
-          <strong>Note:</strong> This is a demo site on a free service, please excuse slow load times.
         </Typography>
       </Box>
     </ThemeProvider>
