@@ -57,6 +57,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
       }}
     
   >
+    <Box>
     <Button
       variant={showSenators ? "contained" : "outlined"}
       color="primary"
@@ -74,6 +75,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
     >
       Representatives
     </Button>
+    </Box>
     {senators ? (
       showSenators ? (
         <Box sx={{
