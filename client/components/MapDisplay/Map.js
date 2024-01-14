@@ -20,8 +20,7 @@ const Map = () => {
   const [representatives, setRepresentatives] = useState(null);
   const [zipcode, setZipcode] = useState(null);
 
-  // const googleApiKey = "AIzaSyB4VKJtLFgLLnWldpXrucEnyD9iE7pMiwg";
-  const googleApiKey = "AIzaSyB5z1jLjrh5UfjIjRo8NDxOLS4uVT-9YEQ";
+  const googleApiKey = "AIzaSyD8Fw8oEJZHNz6hlvcamr3e4dNcEltVChk";
 
   const getLocation = () => {
     if (zipcode) {
