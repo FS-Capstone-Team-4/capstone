@@ -38,13 +38,17 @@ const BillSearch = () => {
   const [bills, setBills] = useState([]);
 
   const fetchBills = async (query) => {
-    setLoadingBills(true);
+    try{ setLoadingBills(true);
     const response = await axios.get(
       `https://api.propublica.org/congress/v1/bills/search.json?query=${query}`,
       config
     );
     setBills(response.data.results[0].bills);
-    setLoadingBills(false);
+    } catch(error) {
+      console.log(error)
+    } finally {
+      setLoadingBills(false);
+    }
   };
 
   const [showMore, setShowMore] = useState(Array(bills.length).fill(false));
