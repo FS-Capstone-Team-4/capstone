@@ -9,12 +9,12 @@ const IntroText = ({ senators, representatives }) => {
 
   useEffect(() => {
     setIsIntroTextVisible(true);
-  }, []); // Run the effect only once on initial render
+  }, []); 
 
   const theme = createTheme({
     breakpoints: {
       values: {
-        md: 1120, // Medium devices (tablets)
+        md: 1150, 
       },
     },
   });

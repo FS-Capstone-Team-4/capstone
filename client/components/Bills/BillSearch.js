@@ -9,11 +9,9 @@ import MenuList from "./BillsMap";
 import SearchIcon from "@mui/icons-material/Search";
 import { Box } from "@mui/material";
 
-//WORK ON THIS PAGE
-
 const BillSearch = () => {
-  const [value, setValue] = useState(""); // Here we'll store the value of the search bar's text input
-  const [loadingBills, setLoadingBills] = useState(false); // Here we'll store the value of the search bar's text input
+  const [value, setValue] = useState(""); 
+  const [loadingBills, setLoadingBills] = useState(false); 
 
   const onChange = (ev) => {
     setValue(ev.target.value);
@@ -100,11 +98,6 @@ const BillSearch = () => {
             type="submit"
             aria-label="search"
             onClick={search}
-            sx={
-              {
-                // padding: 10,
-              }
-            }
           >
             <SearchIcon />
           </IconButton>

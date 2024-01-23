@@ -54,7 +54,7 @@ const RepCard = props => {
     }
     />}
     <CardContent>
-    <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: '10vh' }}>
+    <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: '100px' }}>
               {`${props.member.name}`}
               </Typography>
              <Button

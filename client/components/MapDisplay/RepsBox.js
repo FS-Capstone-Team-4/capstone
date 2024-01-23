@@ -16,13 +16,13 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
 
     useEffect(() => {
         setIsRepsBoxVisible(true);
-      }, []); // Run the effect only once on initial render
+      }, []); 
     
 
     const theme = createTheme({
         breakpoints: {
           values: {
-            md: 1120, // Medium devices (tablets)
+            md: 1150, 
           },
         },
       });
@@ -39,7 +39,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
         position: "relative",
         bgcolor: "white",
         zIndex: '999',
-        height: '85vh',
+        height: '600px',
         marginTop: '20px',
 
         [theme.breakpoints.up('md')]: {
@@ -57,7 +57,11 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
       }}
     
   >
-    <Box>
+    <Box  sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",}}>
     <Button
       variant={showSenators ? "contained" : "outlined"}
       color="primary"
@@ -82,7 +86,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
         <Box sx={{
           display: "flex",
           width:'400px',
-          height: '50vh',
+          height: '400px',
           gap: 2,
         }}>
         <RepCard member={senators[0]} />
