@@ -1,42 +1,21 @@
-# Capstone
+# Polifacts
 
-# Team 4 
+This is a web app that is designed to offer easy access to information on your congresspeople and senators. It draws from an axios API to keep data on recent senators and their votes on recent bills.
 
-This document describes our team social contract for this project
+Built in React using drawing from a PostgreSQL database for static information and the axios API for information that needs updating. Frontend built with Material UI.
 
-## Daily Process
+# Landing page
 
-* Start with a group standup (less than 15 mins total)
-    - Task master facilitates and calls on each person for an update
-    - Each person says what they've worked on, what they accomplished since last standup and any blockers they have encountered
-* At the end of each standup we rotate the roles 
-* Begin to work on assigned tasks for that day (making sure to pull in changes from previous merges)
-    - bring up questions or issues in our team slack channel after 20 mins of being blocked by one issue
-* When a task is complete we make a PR and have at least one other member review and approve before merging. 
-    - The PR must be approved and pass CircleCi tests before it can merge
+On landing, you receive information about the site and can plug in your zip code. If you do so, Polifacts will pull up your local senators and congresspeople. Their pages are then available to view.
 
-## Team Expectations
+# Senators/Congresspeople pages
 
-* Each of us reserves the rights to our weekends and we have been straightforward with how and when we can commit to working on the project
-* If we have a blocking issue, we will post a slack message to the team before DMing one person
-* None of us will specialize in front-end or back-end code
-* Don't interrupt - raise your hand
-* We will allow space for everyone to speak 
-* Discuss when we disagree - argue infrequently 
-* We will message the group when we change what task we are working on
-* We will use a board of cards to show what issues are being worked on and what issues need to be done
+View your senators by name, and access all of their socials on this page. You are also given a list of their recent bills - both bills that they sponsored and bills they voted on.
 
-## Issues
+# Bills page
 
-* If the group is divided on a certain decision we will take the following steps:
-    
-    1. Take 5 - 10 min break
-    2. List out the pros / cons 
-    3. Vote on it
-    4. If the vote is split, escalate to our mentor or instructor
+Navigating to the bills page on the side bar will offer you a look into recent bills put to the floor. Navigate based on a series of pre-selected topics, or search your own topic.
 
-* If we are frustrated:
+# Member search page
 
-    - We will take a walk or get some water
-    - Talk constructively about actionable items 
-    - Bring in a 3rd party to mediate
+Pull up all of the senators based on a series of search parameters.
