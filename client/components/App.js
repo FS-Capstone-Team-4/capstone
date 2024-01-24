@@ -3,7 +3,7 @@ import axios from "axios";
 import Dashboard from "./Dashboard/Dashboard";
 
 const App = () => {
-  const token = "Zy3zqkzTIeeWT37pkeA06VRZNZhFAoYAm530xYl6";
+  const token = process.env.REACT_APP_API_TOKEN
   const config = {
     headers: {
       "X-API-Key": token,
