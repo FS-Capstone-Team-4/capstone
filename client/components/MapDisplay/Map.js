@@ -54,7 +54,6 @@ const Map = () => {
             .get(civicUrl)
             .then((response) => {
               const officials = response.data.officials;
-              // console.log("officials", officials)
               setSenators([officials[0], officials[1]]);
               setRepresentatives([officials[2]]);
             })
@@ -73,7 +72,7 @@ const Map = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        height: "60vh",
       }}
     >
       <MapContainer
@@ -96,15 +95,15 @@ const Map = () => {
           </>
         )}
       </MapContainer>
-      
+
+      <IntroText />
+
       {senators ? (
         <RepsBox senators={senators} setSenators={setSenators} representatives={representatives} />
       ) : (
         <ZipcodeBox setZipcode={setZipcode} zipcode={zipcode} />
       )}
 
-
-      <IntroText />
 
 
 

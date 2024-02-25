@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-// import photo from './AltPhoto2.jpeg'
 
 const RepCard = props => {
   function extractIdFromUrl(url) {
@@ -26,17 +25,11 @@ const RepCard = props => {
   :
   backgroundColor="#595b60"
 
-
-  let image 
-
+  let image
 
   props.member.photoUrl ? 
   image = true :
   image = false
-
-
-
-
 
   return (
     <Card sx={{ flex: 1 }}>
@@ -54,7 +47,7 @@ const RepCard = props => {
     }
     />}
     <CardContent>
-    <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: '100px' }}>
+    <Typography gutterBottom variant='h5' component='h2' sx={{ fontSize: '25px', height: 'auto' }}>
               {`${props.member.name}`}
               </Typography>
              <Button

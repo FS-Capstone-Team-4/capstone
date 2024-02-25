@@ -11,10 +11,13 @@ const CongressPage = () => {
       "X-API-Key": token,
     },
   };
+  
 
   const { CongressId } = useParams();
 
   const [congressId, setCongressId] = useState(CongressId)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [singleMember, setSingleMember] = useState([]);
   const [billsByMember, setBillsByMember] = useState([]);
   const [votesByMember, setVotesByMember] = useState([]);
@@ -29,6 +32,8 @@ const CongressPage = () => {
       `https://api.propublica.org/congress/v1/members/${memberId}.json`,
       config
     );
+
+    setLoading(false)
 
     setSingleMember(memberResponse.data.results[0]);
   };
@@ -56,6 +61,7 @@ const CongressPage = () => {
   };
 
   useEffect(() => {
+    if (congressId==="null") setError(true)
     fetchSingleMember(congressId)
   }, [congressId]);
 
@@ -89,6 +95,8 @@ const CongressPage = () => {
 
   return (
     <CongressMemberPage
+      loading={loading}
+      error={error}
       rep={singleMember}
       bills={billsByMember}
       votes={votesByMember}

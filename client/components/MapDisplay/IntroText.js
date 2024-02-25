@@ -32,19 +32,19 @@ const IntroText = ({ senators, representatives }) => {
           zIndex: "999",
           padding: 3,
 
-          [theme.breakpoints.up("md")]: {
-            position: "absolute",
-            height: "500px",
-            marginTop: "0px",
-            borderRadius: 3,
-            boxShadow: 2,
-            top: "50%",
-            left: "26%",
-            width: "450px",
-            opacity: isIntroTextVisible ? 1 : 0,
-            transition: "opacity 1s ease-in-out",  
-            transform: "translate(-50%, -50%)",
-          },
+          // [theme.breakpoints.up("md")]: {
+          //   position: "absolute",
+          //   height: "500px",
+          //   marginTop: "0px",
+          //   borderRadius: 3,
+          //   boxShadow: 2,
+          //   top: "50%",
+          //   left: "26%",
+          //   width: "450px",
+          //   opacity: isIntroTextVisible ? 1 : 0,
+          //   transition: "opacity 1s ease-in-out",  
+          //   transform: "translate(-50%, -50%)",
+          // },
         }}
       >
         <Typography

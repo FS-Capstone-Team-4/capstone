@@ -124,7 +124,8 @@ const BillSearch = () => {
           <MenuItem value="civil rights">Civil Rights</MenuItem>
         </Select>
       </Box>
-
+      
+      <div>
       <Box
         sx={{
           padding: "10px 20px",
@@ -136,12 +137,24 @@ const BillSearch = () => {
           align: "center",
         }}
       ></Box>
+      {loadingBills &&     <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "50px",
+            }}
+          >              <Typography
+          align="center"
+          variant="h5"
+        >Loading bills. This may take a minute...</Typography>
 
-      {bills ? (
+          </Box> }
+      {!loadingBills && bills ? (
         bills.map((bill, index) => <MenuList bill={bill} />)
-      ) : loadingBills ? (
-        <h1> Loading Bills </h1>
       ) : null}
+      </div>
     </Box>
   );
 };

@@ -7,8 +7,8 @@ const ZipcodeBox = ({ setZipcode, zipcode }) => {
   const theme = createTheme({
     breakpoints: {
       values: {
-        md: 1120, // Medium devices (tablets)
-      },
+        md: 1120,
+      }
     },
   });
 
@@ -38,18 +38,17 @@ const ZipcodeBox = ({ setZipcode, zipcode }) => {
             zIndex: "999",
             padding: 3,
             transform: "translate(0%, 0%)",
-
-            [theme.breakpoints.up("md")]: {
-              position: "absolute",
-              height: "auto",
-              borderRadius: 3,
-              boxShadow: 2,
-              top: "50%",
-              left: "75%",
-              width: "auto",
-              transition: "opacity 1s ease-in-out",
-              transform: "translate(-50%, -50%)",
-            },
+            // [theme.breakpoints.up("md")]: {
+            //   position: "absolute",
+            //   height: "auto",
+            //   borderRadius: 3,
+            //   boxShadow: 2,
+            //   top: "50%",
+            //   left: "75%",
+            //   width: "auto",
+            //   transition: "opacity 1s ease-in-out",
+            //   transform: "translate(-50%, -50%)",
+            // }
           }}
         >
           <Typography

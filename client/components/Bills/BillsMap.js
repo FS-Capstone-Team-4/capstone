@@ -8,7 +8,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import BillCard from "./BillPageStyled";
 
 
-
 const MenuList = ({bill}) => {
   const [open, setOpen] = useState(false);
 

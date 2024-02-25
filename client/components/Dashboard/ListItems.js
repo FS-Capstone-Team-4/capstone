@@ -9,7 +9,6 @@ import MapIcon from '@mui/icons-material/Map';
 import { Link } from '@mui/material';
 
 
-// have to fix link on this page
 export const MainListItems = () => {
 
     return (

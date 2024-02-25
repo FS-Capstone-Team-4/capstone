@@ -42,18 +42,18 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
         height: '600px',
         marginTop: '20px',
 
-        [theme.breakpoints.up('md')]: {
-            position: 'absolute',
-            marginTop: '0px',
-            top: '50%',
-            left: '80%',
-            borderRadius: 3,
-            boxShadow: 6,
-            padding: 3,
-            opacity: isRepsBoxVisible ? 1 : 0,
-            transition: "opacity 1s ease-in-out",  
-            transform: 'translate(-50%, -50%)',
-          },
+        // [theme.breakpoints.up('md')]: {
+        //     position: 'absolute',
+        //     marginTop: '0px',
+        //     top: '50%',
+        //     left: '80%',
+        //     borderRadius: 3,
+        //     boxShadow: 6,
+        //     padding: 3,
+        //     opacity: isRepsBoxVisible ? 1 : 0,
+        //     transition: "opacity 1s ease-in-out",  
+        //     transform: 'translate(-50%, -50%)',
+        //   },
       }}
     
   >
@@ -123,7 +123,7 @@ const RepsBox = ({ senators, setSenators, representatives }) => {
     bgcolor: "white",
     zIndex: '999',
     height: '60px',
-    marginTop: '20px',
+    marginTop: '0px',
 
     [theme.breakpoints.up('md')]: {
         position: 'absolute',

@@ -20,8 +20,6 @@ import BillPage from "../Bills/BillPage";
 import Map from "../MapDisplay/Map";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 
-//https://mui.com/material-ui/getting-started/templates/dashboard/
-
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -72,7 +70,7 @@ function DashboardContent() {
   const navigate = useNavigate();
 
   const returnHome = () => {
-    navigate("/"); // Navigating to the home page
+    navigate("/"); 
   };
 
   const [open, setOpen] = React.useState(false);
@@ -86,7 +84,7 @@ function DashboardContent() {
       <AppBar position="absolute" open={open}>
         <Toolbar
           sx={{
-            pr: "24px", // keep right padding when drawer closed
+            pr: "24px",
           }}
         >
           <IconButton
