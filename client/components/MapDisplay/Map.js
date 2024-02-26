@@ -112,17 +112,3 @@ const Map = () => {
 };
 
 export default Map;
-
-//Irwing's func
-
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition((position) => {
-//     setUserLatitude(position.coords.latitude);
-//     setUserLongitude(position.coords.longitude);
-//   });
-// }
-  //NOT BEING USED HERE
-  // const fetchCongressMembers = async () => {
-  //   const response = await axios.get("/api/congressmembers"); //THIS USES OLD API
-  //   setCongressMembers(response.data);
-  // };
